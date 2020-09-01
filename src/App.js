@@ -1,10 +1,11 @@
 import React from 'react';
 import './App.scss';
+import Dashboard from './pages/dashboard/dashboard.component';
 
 function App() {
   return (
     <div className="App">
-      <h1>Hello Leadpreneuer Admin</h1>
+      <Dashboard />
     </div>
   );
 }
