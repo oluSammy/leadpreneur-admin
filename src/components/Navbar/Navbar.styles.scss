@@ -1,19 +1,29 @@
 @import '../../sass/abstracts/variables';
 
-
 .navbar {
-    background-color: $color-primary;
+    background-color: $color-primary-dark;
     display: flex;
     align-items: center;
     color: $color-white;
-    padding: 1rem 4rem;
+    padding: .5rem 4rem;
 
     &__logo {
         margin-right: auto;
 
         &--text {
-            font-size: 3rem;
-            font-family: 'Kaushan Script', cursive;
+            display: flex;
+            flex-direction: column;
+            
+            & .lead {
+                font-family: 'Kaushan Script', cursive;
+                font-weight: 300;
+                margin-bottom: -1.3rem;
+            }
+
+            & .africa {
+                letter-spacing: .5rem;
+                margin-left: .7rem;
+            }
         }
     }
 
@@ -21,18 +31,38 @@
         display: flex;
         list-style-type: none;
         margin-right: 4rem;
-
+        
         &--item {
-            margin-right: 1rem;
+            margin-right: 1.5rem;
+            color: $color-white;
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            transition: all .2s;
+
+            &:hover {
+                transform: translateY(-.2rem);
+            }
+        }
+
+        &--icon {
+            margin-right: .5rem;
+            font-size: 1.6rem;
         }
     }
 
     &__socials {
         display: flex;
+        align-items: center;
         list-style-type: none;
 
         &--item {
             margin-right: 1rem;
+        }
+
+        &--logo {
+            font-size: 2.2rem;
+            color: $color-white;
         }
     }
 
