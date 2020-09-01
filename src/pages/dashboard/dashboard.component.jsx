@@ -1,6 +1,8 @@
 import React from 'react';
-import Navbar from '../../components/Navbar/Navbar.component';
 import './dashboard.styles.scss';
+
+import Navbar from '../../components/Navbar/Navbar.component';
+import Sidebar from '../../components/sidebar/sidebar.components';
 
 const Dashboard = () => (
     <div className="dashboard">
@@ -8,7 +10,7 @@ const Dashboard = () => (
             <Navbar/>
         </div>
         <div className="dashboard__sidebar">
-            <h1>Sidebar</h1>
+            <Sidebar />
         </div>
         <div className="dashboard__main">
             <h1>Main Bowl</h1>

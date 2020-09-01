@@ -1,0 +1,65 @@
+@import '../../sass/abstracts/variables';
+
+.sidebar {
+    margin-top: 1rem;
+    background-color: $color-primary-dark;
+    min-height: 88.7vh;
+    border-radius: 0 1.4rem 1.4rem 0;
+    box-shadow: 7px -2px 15px -3px rgba(0,0,0,0.75);
+    padding-top: 2rem;
+
+    &__img {
+        width: 9rem;
+        height: 9rem;
+        background-color: $color-white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;        
+        margin: 0 auto;
+    }
+
+    &__avatar {
+        font-size: 3rem;
+        margin: 0 auto;
+    }
+
+    &__admin {
+        font-size: 1.2rem;
+        color: $color-white;
+        width: max-content;
+        margin: 0 auto;
+        margin-top: 1.5rem;
+    }
+
+    &__list {
+        display: flex;
+        flex-direction: column;
+        margin-top: 2rem;
+
+        &--item {
+            text-decoration: none;
+            color: $color-white;
+            font-size: 1.6rem;
+            margin-bottom: .5rem;
+            display: flex;
+            align-items: center;
+            padding: .5rem 0;
+
+            &:hover {
+                background-color: $color-white;
+                color: $text-color;
+            }
+        }
+
+        &--active {
+            background-color: $color-white;
+            color: $text-color;
+        }
+
+        &--icon {
+            margin-right: 2rem;
+            margin-left: 10%;
+        }
+    }
+}

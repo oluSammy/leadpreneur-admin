@@ -2,7 +2,7 @@
 
 .dashboard {
     display: grid;
-    grid-template-columns: minmax(min-content, 25vw) minmax(min-content, 75vw);
+    grid-template-columns: minmax(min-content, 22vw) minmax(min-content, 78vw);
     grid-template-rows: min-content min-content min-content;
 
     background-color: $color-grey-light;
@@ -13,11 +13,10 @@
     }
 
     &__sidebar {
-        background-color: palegoldenrod;
         margin-right: 3rem;
     }
 
-    &__main {
-        background-color: palevioletred;
-    }
+    // &__main {
+    //     // background-color: palevioletred;
+    // }
 }
