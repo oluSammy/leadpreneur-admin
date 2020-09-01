@@ -1,0 +1,40 @@
+@import '../../sass/abstracts/variables';
+
+
+.navbar {
+    background-color: $color-primary;
+    display: flex;
+    align-items: center;
+    color: $color-white;
+    padding: 1rem 4rem;
+
+    &__logo {
+        margin-right: auto;
+
+        &--text {
+            font-size: 3rem;
+            font-family: 'Kaushan Script', cursive;
+        }
+    }
+
+    &__list {
+        display: flex;
+        list-style-type: none;
+        margin-right: 4rem;
+
+        &--item {
+            margin-right: 1rem;
+        }
+    }
+
+    &__socials {
+        display: flex;
+        list-style-type: none;
+
+        &--item {
+            margin-right: 1rem;
+        }
+    }
+
+
+}
