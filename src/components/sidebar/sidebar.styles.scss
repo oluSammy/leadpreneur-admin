@@ -45,10 +45,12 @@
             display: flex;
             align-items: center;
             padding: .5rem 0;
+            transition: all .2s;
 
             &:hover {
                 background-color: $color-white;
                 color: $text-color;
+                transform: scale(1.1);
             }
         }
 

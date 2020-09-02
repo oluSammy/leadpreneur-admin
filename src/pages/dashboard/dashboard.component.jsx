@@ -3,6 +3,7 @@ import './dashboard.styles.scss';
 
 import Navbar from '../../components/Navbar/Navbar.component';
 import Sidebar from '../../components/sidebar/sidebar.components';
+import DashboardMain from '../dashboard-main/dashboard-main.components';
 
 const Dashboard = () => (
     <div className="dashboard">
@@ -13,7 +14,7 @@ const Dashboard = () => (
             <Sidebar />
         </div>
         <div className="dashboard__main">
-            <h1>Main Bowl</h1>
+            <DashboardMain /> 
         </div>
     </div>    
 );

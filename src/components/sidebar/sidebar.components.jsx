@@ -23,39 +23,39 @@ const Sidebar = () => (
             olumorinsammy@gmail.com
         </h4>
         <ul className="sidebar__list">
-            <NavLink to="/" className="sidebar__list--item" activeClassName="sidebar__list--active" >
+            <NavLink to="/dashboard" className="sidebar__list--item" activeClassName="sidebar__list--active" >
                 <GoDashboard className="sidebar__list--icon" />
                 Dashboard
             </NavLink>
-            <NavLink to="/" className="sidebar__list--item" >
+            <NavLink to="/users" className="sidebar__list--item" activeClassName="sidebar__list--active" >
                 <HiOutlineUsers className="sidebar__list--icon" />
                 All Users
             </NavLink>
-            <NavLink to="/" className="sidebar__list--item">
+            <NavLink to="/activate-users" className="sidebar__list--item" activeClassName="sidebar__list--active">
                 <FiUserCheck className="sidebar__list--icon" />
                 Activate Users
             </NavLink>
-            <NavLink to="/" className="sidebar__list--item">
+            <NavLink to="/deactivate-users" className="sidebar__list--item" activeClassName="sidebar__list--active">
                 <FaUserSlash className="sidebar__list--icon" />
                 Deactivate Users
             </NavLink>
-            <NavLink to="/" className="sidebar__list--item">
+            <NavLink to="/expired-subscription" className="sidebar__list--item" activeClassName="sidebar__list--active">
                 <BiMessageSquareError className="sidebar__list--icon" />
                 Expired Subscription
             </NavLink>
-            <NavLink to="/" className="sidebar__list--item">
+            <NavLink to="/agents" className="sidebar__list--item" activeClassName="sidebar__list--active">
                 <AiOutlineUserSwitch className="sidebar__list--icon" />
                 Agents
             </NavLink>
-            <NavLink to="/" className="sidebar__list--item">
+            <NavLink to="/new-agent" className="sidebar__list--item" activeClassName="sidebar__list--active">
                 <TiUserAddOutline className="sidebar__list--icon" />
                 New Agent
             </NavLink>
-            <NavLink to="/" className="sidebar__list--item">
+            <NavLink to="/disable-agent" className="sidebar__list--item" activeClassName="sidebar__list--active">
                 <ImCancelCircle className="sidebar__list--icon" />
                 Disable Agent
             </NavLink>
-            <NavLink to="/" className="sidebar__list--item">
+            <NavLink to="/search-filter" className="sidebar__list--item" activeClassName="sidebar__list--active">
                 <AiOutlineMan className="sidebar__list--icon" />
                 Manage Search Filter
             </NavLink>
