@@ -6,7 +6,15 @@ import { FcCancel, FcCheckmark } from 'react-icons/fc';
 
 const UsersPage = () => (
     <div className="users">
-        <h1 className="users__heading">Users</h1>
+        <div className="users__page-top">
+            <h1 className="users__heading">Users</h1>
+            <form className="users__search">
+                <input type="search" name="search" id="search" className="users__search--input" 
+                    placeholder="Search User by name or username"                
+                />
+                <button type="submit" className="users__search--submit" >Search</button>
+            </form>
+        </div>
         <div className="users__count">
             <div className="users__count-box">
                 <h5 className="users__count-box--number users__heading--1">2234</h5>
@@ -89,6 +97,24 @@ const UsersPage = () => (
             <p className="users__table-data">Olumorin Samuel</p>
             <p className="users__table-data">olusamayor</p>
             <p className="users__table-data">olumorinsammy@gmail.com</p>
+            <p className="users__table-data users__table-number users__table-number">08188465264</p>
+            <p className="users__table-data users__table-activate"> <span>Activate</span> <FcCheckmark /> </p>
+            <p className="users__table-data users__table-number users__table-number">12-02-2099</p>
+        </div>
+
+        <div className="users__table-data-box">
+            <p className="users__table-data">Olumorin Samuel</p>
+            <p className="users__table-data">olusamayor</p>
+            <p className="users__table-data">olumorinsammy@gmail.com</p>
+            <p className="users__table-data users__table-number">08188465264</p>
+            <p className="users__table-data users__table-deactivate"> <span>Deactivate</span> <FcCancel /> </p>
+            <p className="users__table-data users__table-number">12-02-2099</p>
+        </div>
+
+        <div className="users__table-data-box">
+            <p className="users__table-data">Olumorin Samuel</p>
+            <p className="users__table-data">olusamayor</p>
+            <p className="users__table-data">olumorinsammy@gmail.com</p>
             <p className="users__table-data users__table-number">08188465264</p>
             <p className="users__table-data users__table-activate"> <span>Activate</span> <FcCheckmark /> </p>
             <p className="users__table-data users__table-number">12-02-2099</p>
@@ -98,91 +124,73 @@ const UsersPage = () => (
             <p className="users__table-data">Olumorin Samuel</p>
             <p className="users__table-data">olusamayor</p>
             <p className="users__table-data">olumorinsammy@gmail.com</p>
-            <p className="users__table-data">08188465264</p>
+            <p className="users__table-data users__table-number">08188465264</p>
+            <p className="users__table-data users__table-activate"> <span>Activate</span> <FcCheckmark /> </p>
+            <p className="users__table-data users__table-number">12-02-2099</p>
+        </div>
+        <div className="users__table-data-box">
+            <p className="users__table-data">Olumorin Samuel</p>
+            <p className="users__table-data">olusamayor</p>
+            <p className="users__table-data">olumorinsammy@gmail.com</p>
+            <p className="users__table-data users__table-number">08188465264</p>
+            <p className="users__table-data users__table-activate"> <span>Activate</span> <FcCheckmark /> </p>
+            <p className="users__table-data users__table-number">12-02-2099</p>
+        </div>
+        <div className="users__table-data-box">
+            <p className="users__table-data">Olumorin Samuel</p>
+            <p className="users__table-data">olusamayor</p>
+            <p className="users__table-data">olumorinsammy@gmail.com</p>
+            <p className="users__table-data users__table-number">08188465264</p>
             <p className="users__table-data users__table-deactivate"> <span>Deactivate</span> <FcCancel /> </p>
-            <p className="users__table-data">12-02-2099</p>
+            <p className="users__table-data users__table-number">12-02-2099</p>
         </div>
-
         <div className="users__table-data-box">
             <p className="users__table-data">Olumorin Samuel</p>
             <p className="users__table-data">olusamayor</p>
             <p className="users__table-data">olumorinsammy@gmail.com</p>
-            <p className="users__table-data">08188465264</p>
+            <p className="users__table-data users__table-number">08188465264</p>
             <p className="users__table-data users__table-activate"> <span>Activate</span> <FcCheckmark /> </p>
-            <p className="users__table-data">12-02-2099</p>
-        </div>
-
-        <div className="users__table-data-box">
-            <p className="users__table-data">Olumorin Samuel</p>
-            <p className="users__table-data">olusamayor</p>
-            <p className="users__table-data">olumorinsammy@gmail.com</p>
-            <p className="users__table-data">08188465264</p>
-            <p className="users__table-data users__table-activate"> <span>Activate</span> <FcCheckmark /> </p>
-            <p className="users__table-data">12-02-2099</p>
+            <p className="users__table-data users__table-number">12-02-2099</p>
         </div>
         <div className="users__table-data-box">
             <p className="users__table-data">Olumorin Samuel</p>
             <p className="users__table-data">olusamayor</p>
             <p className="users__table-data">olumorinsammy@gmail.com</p>
-            <p className="users__table-data">08188465264</p>
-            <p className="users__table-data users__table-activate"> <span>Activate</span> <FcCheckmark /> </p>
-            <p className="users__table-data">12-02-2099</p>
-        </div>
-        <div className="users__table-data-box">
-            <p className="users__table-data">Olumorin Samuel</p>
-            <p className="users__table-data">olusamayor</p>
-            <p className="users__table-data">olumorinsammy@gmail.com</p>
-            <p className="users__table-data">08188465264</p>
+            <p className="users__table-data users__table-number">08188465264</p>
             <p className="users__table-data users__table-deactivate"> <span>Deactivate</span> <FcCancel /> </p>
-            <p className="users__table-data">12-02-2099</p>
+            <p className="users__table-data users__table-number">12-02-2099</p>
         </div>
         <div className="users__table-data-box">
             <p className="users__table-data">Olumorin Samuel</p>
             <p className="users__table-data">olusamayor</p>
             <p className="users__table-data">olumorinsammy@gmail.com</p>
-            <p className="users__table-data">08188465264</p>
-            <p className="users__table-data users__table-activate"> <span>Activate</span> <FcCheckmark /> </p>
-            <p className="users__table-data">12-02-2099</p>
-        </div>
-        <div className="users__table-data-box">
-            <p className="users__table-data">Olumorin Samuel</p>
-            <p className="users__table-data">olusamayor</p>
-            <p className="users__table-data">olumorinsammy@gmail.com</p>
-            <p className="users__table-data">08188465264</p>
+            <p className="users__table-data users__table-number">08188465264</p>
             <p className="users__table-data users__table-deactivate"> <span>Deactivate</span> <FcCancel /> </p>
-            <p className="users__table-data">12-02-2099</p>
+            <p className="users__table-data users__table-number">12-02-2099</p>
         </div>
         <div className="users__table-data-box">
             <p className="users__table-data">Olumorin Samuel</p>
             <p className="users__table-data">olusamayor</p>
             <p className="users__table-data">olumorinsammy@gmail.com</p>
-            <p className="users__table-data">08188465264</p>
-            <p className="users__table-data users__table-deactivate"> <span>Deactivate</span> <FcCancel /> </p>
-            <p className="users__table-data">12-02-2099</p>
-        </div>
-        <div className="users__table-data-box">
-            <p className="users__table-data">Olumorin Samuel</p>
-            <p className="users__table-data">olusamayor</p>
-            <p className="users__table-data">olumorinsammy@gmail.com</p>
-            <p className="users__table-data">08188465264</p>
+            <p className="users__table-data users__table-number">08188465264</p>
             <p className="users__table-data users__table-activate"> <span>Activate</span> <FcCheckmark /> </p>
-            <p className="users__table-data">12-02-2099</p>
+            <p className="users__table-data users__table-number">12-02-2099</p>
         </div>
         <div className="users__table-data-box">
             <p className="users__table-data">Olumorin Samuel</p>
             <p className="users__table-data">olusamayor</p>
             <p className="users__table-data">olumorinsammy@gmail.com</p>
-            <p className="users__table-data">08188465264</p>
+            <p className="users__table-data users__table-number">08188465264</p>
             <p className="users__table-data users__table-activate"> <span>Activate</span> <FcCheckmark /> </p>
-            <p className="users__table-data">12-02-2099</p>
+            <p className="users__table-data users__table-number">12-02-2099</p>
         </div>
         <div className="users__table-data-box">
             <p className="users__table-data">Olumorin Samuel</p>
             <p className="users__table-data">olusamayor</p>
             <p className="users__table-data">olumorinsammy@gmail.com</p>
-            <p className="users__table-data">08188465264</p>
+            <p className="users__table-data users__table-number">08188465264</p>
             <p className="users__table-data users__table-activate"> <span>Activate</span> <FcCheckmark /> </p>
-            <p className="users__table-data">12-02-2099</p>
+            <p className="users__table-data users__table-number">12-02-2099</p>
         </div>
 
         <div className="align-center">

@@ -3,20 +3,25 @@
 .dashboard {
     display: grid;
     grid-template-columns: minmax(min-content, 22vw) minmax(min-content, 78vw);
-    grid-template-rows: min-content min-content min-content;
+    // grid-template-rows: min-content 100vh min-content;
 
     background-color: $color-grey-light;
-    min-height: 100vh;
+    position: relative;
 
     &__nav {
         grid-column: 1 / -1;
+        z-index: 90;
     }
 
     &__sidebar {
         margin-right: 3rem;
+        position: fixed;
+        width: 18vw;
     }
 
-    // &__main {
-    //     // background-color: palevioletred;
-    // }
+     &__main {
+        //   background-color: palevioletred;
+        grid-column: 2 / -1;
+
+     }
 }

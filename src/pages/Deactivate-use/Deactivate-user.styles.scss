@@ -1,0 +1,46 @@
+@import '../../sass/abstracts/variables';
+
+.deactivate-user {
+    padding: 1rem;
+    margin-right: 1rem;
+    min-height: 100vh;
+
+    &__header {
+        display: flex;
+        align-items: center;
+    }
+
+    &__heading {
+        font-size: 2rem;
+        text-transform: capitalize;
+        font-weight: 300;
+        margin-right: auto;
+    }
+
+    &__search {
+        margin-right: 2rem;
+        width: 50%;
+        position: relative;
+
+        &--input {
+            width: 80%;
+            padding: .8rem 1rem;
+            border: 1px solid $color-grey-dark-2;
+            border-radius: 1.7rem;
+        }
+
+        &--submit {
+            padding: .9rem 4rem;
+            border-radius: 1.7rem;
+            border: none;
+            background-color: $color-primary-dark;
+            color: $color-white;
+            font-weight: 700;
+            text-transform: capitalize;
+            cursor: pointer;
+
+            position: absolute;
+            right: 10rem;
+        }
+    }
+}

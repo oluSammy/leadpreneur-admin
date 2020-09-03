@@ -1,0 +1,57 @@
+@import '../../sass//abstracts/variables';
+
+.user-data {
+    margin-top: 2rem;
+
+    &__heading {
+        display: grid;
+        grid-template-columns: .8fr .6fr 1fr .7fr .6fr .5fr;
+
+        background-color: $color-primary-dark;
+        padding: .72rem;
+        border-radius: .8rem;
+        margin-top: 1rem;
+    }
+
+    &__heading-text {
+        color: $color-white;
+        font-size: 1.4rem;
+    }
+
+    &__data-box {
+        display: grid;
+        grid-template-columns: .8fr .6fr 1fr .7fr .6fr .5fr;
+        padding: .5rem .3rem;
+        color: $text-color;
+        cursor: pointer;
+        transition: all .2s;
+
+        &:hover {
+            background-color: $color-primary;
+            color: $color-white;
+        }
+    }
+    
+
+    &__data-box:nth-child(2n) {
+        background-color: $color-grey-light-3;
+        transition: all .2s;
+
+        &:hover {
+            background-color: $color-primary;
+            color: $color-white;
+        }
+    }
+
+    &__text {
+        font-size: 1.3rem;
+    }
+
+    &__number {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;;
+    }
+
+    &__activate {
+        text-decoration: underline;
+    }
+}

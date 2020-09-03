@@ -6,9 +6,43 @@
     padding: 1rem;
     padding-bottom: 15rem;
 
+    &__page-top {
+        display: flex;
+        align-items: center;
+        margin-bottom: 1rem;
+    }
+
+    &__search {
+        margin-right: 2rem;
+        width: 50%;
+        position: relative;
+
+        &--input {
+            width: 80%;
+            padding: .8rem 1rem;
+            border: 1px solid $color-grey-dark-2;
+            border-radius: 1.7rem;
+        }
+
+        &--submit {
+            padding: .9rem 4rem;
+            border-radius: 1.7rem;
+            border: none;
+            background-color: $color-primary-dark;
+            color: $color-white;
+            font-weight: 700;
+            text-transform: capitalize;
+            cursor: pointer;
+
+            position: absolute;
+            right: 10rem;
+        }
+    }
+
     &__heading {
         font-weight: 400;
         font-size: 2.5rem;
+        margin-right: auto;
 
         &--1 {
             color: blue;
@@ -185,15 +219,19 @@
         }
     }
 
+    &__table-number {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
     &__table-more {
         margin-top: 2rem;
         padding: .5rem 4rem;
-        border: 1px solid $color-primary-dark;
+        border: 1.2px solid $color-primary-dark;
         background-color: $color-white;
         color: $color-primary-dark;
         cursor: pointer;
         border-radius: 1.2rem;
-        box-shadow: 1px 2px 7px 0px rgba(0,0,0,0.75);
+        box-shadow: 1px 2px 2px 0px rgba(0,0,0,0.75);
 
         &:hover {
             background-color: $color-primary;
