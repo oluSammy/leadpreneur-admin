@@ -2,18 +2,14 @@ import React from 'react';
 import './users-page.scss';
 
 import { IoIosArrowDropdown } from 'react-icons/io';
-import { FcCancel, FcCheckmark } from 'react-icons/fc';    
+import UserDataTable from '../../components/user-data-table/user-data-table.component';
+import SearchUser from '../../components/Search-User/Search-User.component';
 
 const UsersPage = () => (
     <div className="users">
         <div className="users__page-top">
             <h1 className="users__heading">Users</h1>
-            <form className="users__search">
-                <input type="search" name="search" id="search" className="users__search--input" 
-                    placeholder="Search User by name or username"                
-                />
-                <button type="submit" className="users__search--submit" >Search</button>
-            </form>
+            <SearchUser />
         </div>
         <div className="users__count">
             <div className="users__count-box">
@@ -84,115 +80,7 @@ const UsersPage = () => (
                 </div>
             </div>
         </div>
-        <div className="users__table-heading-box">
-            <h4 className="users__table-heading">Name</h4>
-            <h4 className="users__table-heading">Username</h4>
-            <h4 className="users__table-heading">Email</h4>
-            <h4 className="users__table-heading">Phone Number</h4>
-            <h4 className="users__table-heading">Action</h4>
-            <h4 className="users__table-heading">Expiration Date</h4>
-        </div>
-
-        <div className="users__table-data-box">
-            <p className="users__table-data">Olumorin Samuel</p>
-            <p className="users__table-data">olusamayor</p>
-            <p className="users__table-data">olumorinsammy@gmail.com</p>
-            <p className="users__table-data users__table-number users__table-number">08188465264</p>
-            <p className="users__table-data users__table-activate"> <span>Activate</span> <FcCheckmark /> </p>
-            <p className="users__table-data users__table-number users__table-number">12-02-2099</p>
-        </div>
-
-        <div className="users__table-data-box">
-            <p className="users__table-data">Olumorin Samuel</p>
-            <p className="users__table-data">olusamayor</p>
-            <p className="users__table-data">olumorinsammy@gmail.com</p>
-            <p className="users__table-data users__table-number">08188465264</p>
-            <p className="users__table-data users__table-deactivate"> <span>Deactivate</span> <FcCancel /> </p>
-            <p className="users__table-data users__table-number">12-02-2099</p>
-        </div>
-
-        <div className="users__table-data-box">
-            <p className="users__table-data">Olumorin Samuel</p>
-            <p className="users__table-data">olusamayor</p>
-            <p className="users__table-data">olumorinsammy@gmail.com</p>
-            <p className="users__table-data users__table-number">08188465264</p>
-            <p className="users__table-data users__table-activate"> <span>Activate</span> <FcCheckmark /> </p>
-            <p className="users__table-data users__table-number">12-02-2099</p>
-        </div>
-
-        <div className="users__table-data-box">
-            <p className="users__table-data">Olumorin Samuel</p>
-            <p className="users__table-data">olusamayor</p>
-            <p className="users__table-data">olumorinsammy@gmail.com</p>
-            <p className="users__table-data users__table-number">08188465264</p>
-            <p className="users__table-data users__table-activate"> <span>Activate</span> <FcCheckmark /> </p>
-            <p className="users__table-data users__table-number">12-02-2099</p>
-        </div>
-        <div className="users__table-data-box">
-            <p className="users__table-data">Olumorin Samuel</p>
-            <p className="users__table-data">olusamayor</p>
-            <p className="users__table-data">olumorinsammy@gmail.com</p>
-            <p className="users__table-data users__table-number">08188465264</p>
-            <p className="users__table-data users__table-activate"> <span>Activate</span> <FcCheckmark /> </p>
-            <p className="users__table-data users__table-number">12-02-2099</p>
-        </div>
-        <div className="users__table-data-box">
-            <p className="users__table-data">Olumorin Samuel</p>
-            <p className="users__table-data">olusamayor</p>
-            <p className="users__table-data">olumorinsammy@gmail.com</p>
-            <p className="users__table-data users__table-number">08188465264</p>
-            <p className="users__table-data users__table-deactivate"> <span>Deactivate</span> <FcCancel /> </p>
-            <p className="users__table-data users__table-number">12-02-2099</p>
-        </div>
-        <div className="users__table-data-box">
-            <p className="users__table-data">Olumorin Samuel</p>
-            <p className="users__table-data">olusamayor</p>
-            <p className="users__table-data">olumorinsammy@gmail.com</p>
-            <p className="users__table-data users__table-number">08188465264</p>
-            <p className="users__table-data users__table-activate"> <span>Activate</span> <FcCheckmark /> </p>
-            <p className="users__table-data users__table-number">12-02-2099</p>
-        </div>
-        <div className="users__table-data-box">
-            <p className="users__table-data">Olumorin Samuel</p>
-            <p className="users__table-data">olusamayor</p>
-            <p className="users__table-data">olumorinsammy@gmail.com</p>
-            <p className="users__table-data users__table-number">08188465264</p>
-            <p className="users__table-data users__table-deactivate"> <span>Deactivate</span> <FcCancel /> </p>
-            <p className="users__table-data users__table-number">12-02-2099</p>
-        </div>
-        <div className="users__table-data-box">
-            <p className="users__table-data">Olumorin Samuel</p>
-            <p className="users__table-data">olusamayor</p>
-            <p className="users__table-data">olumorinsammy@gmail.com</p>
-            <p className="users__table-data users__table-number">08188465264</p>
-            <p className="users__table-data users__table-deactivate"> <span>Deactivate</span> <FcCancel /> </p>
-            <p className="users__table-data users__table-number">12-02-2099</p>
-        </div>
-        <div className="users__table-data-box">
-            <p className="users__table-data">Olumorin Samuel</p>
-            <p className="users__table-data">olusamayor</p>
-            <p className="users__table-data">olumorinsammy@gmail.com</p>
-            <p className="users__table-data users__table-number">08188465264</p>
-            <p className="users__table-data users__table-activate"> <span>Activate</span> <FcCheckmark /> </p>
-            <p className="users__table-data users__table-number">12-02-2099</p>
-        </div>
-        <div className="users__table-data-box">
-            <p className="users__table-data">Olumorin Samuel</p>
-            <p className="users__table-data">olusamayor</p>
-            <p className="users__table-data">olumorinsammy@gmail.com</p>
-            <p className="users__table-data users__table-number">08188465264</p>
-            <p className="users__table-data users__table-activate"> <span>Activate</span> <FcCheckmark /> </p>
-            <p className="users__table-data users__table-number">12-02-2099</p>
-        </div>
-        <div className="users__table-data-box">
-            <p className="users__table-data">Olumorin Samuel</p>
-            <p className="users__table-data">olusamayor</p>
-            <p className="users__table-data">olumorinsammy@gmail.com</p>
-            <p className="users__table-data users__table-number">08188465264</p>
-            <p className="users__table-data users__table-activate"> <span>Activate</span> <FcCheckmark /> </p>
-            <p className="users__table-data users__table-number">12-02-2099</p>
-        </div>
-
+        <UserDataTable />
         <div className="align-center">
             <button className="users__table-more">More</button>
         </div>

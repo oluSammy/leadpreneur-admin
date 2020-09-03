@@ -18,7 +18,7 @@ const UserDataTable = () => (
             <p className="user-data__text">olusamayor</p>
             <p className="user-data__text">olumorinsammy@gmail.com</p>
             <p className="user-data__text user-data__number">08188465264</p>
-            <p className="user-data__text user-data__activate"> <span>Activate</span> <FcCancel /> </p>
+            <p className="user-data__text user-data__activate"> <span>Activate</span> <FcCheckmark /> </p>
             <p className="user-data__text user-data__number">12-02-2099</p>
         </div>
         <div className="user-data__data-box">
@@ -34,7 +34,7 @@ const UserDataTable = () => (
             <p className="user-data__text">olusamayor</p>
             <p className="user-data__text">olumorinsammy@gmail.com</p>
             <p className="user-data__text user-data__number">08188465264</p>
-            <p className="user-data__text user-data__activate"> <span>Activate</span> <FcCancel /> </p>
+            <p className="user-data__text user-data__activate"> <span>Activate</span> <FcCheckmark /> </p>
             <p className="user-data__text user-data__number">12-02-2099</p>
         </div>
         <div className="user-data__data-box">
@@ -42,7 +42,7 @@ const UserDataTable = () => (
             <p className="user-data__text">olusamayor</p>
             <p className="user-data__text">olumorinsammy@gmail.com</p>
             <p className="user-data__text user-data__number">08188465264</p>
-            <p className="user-data__text user-data__activate"> <span>Activate</span> <FcCancel /> </p>
+            <p className="user-data__text user-data__activate"> <span>Activate</span> <FcCheckmark /> </p>
             <p className="user-data__text user-data__number">12-02-2099</p>
         </div>
         <div className="user-data__data-box">
@@ -50,7 +50,7 @@ const UserDataTable = () => (
             <p className="user-data__text">olusamayor</p>
             <p className="user-data__text">olumorinsammy@gmail.com</p>
             <p className="user-data__text user-data__number">08188465264</p>
-            <p className="user-data__text user-data__activate"> <span>Activate</span> <FcCancel /> </p>
+            <p className="user-data__text user-data__activate"> <span>Activate</span> <FcCheckmark /> </p>
             <p className="user-data__text user-data__number">12-02-2099</p>
         </div><div className="user-data__data-box">
             <p className="user-data__text">Olumorin Samuel</p>
@@ -71,7 +71,7 @@ const UserDataTable = () => (
             <p className="user-data__text">olusamayor</p>
             <p className="user-data__text">olumorinsammy@gmail.com</p>
             <p className="user-data__text user-data__number">08188465264</p>
-            <p className="user-data__text user-data__activate"> <span>Activate</span> <FcCancel /> </p>
+            <p className="user-data__text user-data__activate"> <span>Activate</span> <FcCheckmark /> </p>
             <p className="user-data__text user-data__number">12-02-2099</p>
         </div><div className="user-data__data-box">
             <p className="user-data__text">Olumorin Samuel</p>
@@ -92,7 +92,7 @@ const UserDataTable = () => (
             <p className="user-data__text">olusamayor</p>
             <p className="user-data__text">olumorinsammy@gmail.com</p>
             <p className="user-data__text user-data__number">08188465264</p>
-            <p className="user-data__text user-data__activate"> <span>Activate</span> <FcCancel /> </p>
+            <p className="user-data__text user-data__activate"> <span>Activate</span> <FcCheckmark /> </p>
             <p className="user-data__text user-data__number">12-02-2099</p>
         </div>
         
