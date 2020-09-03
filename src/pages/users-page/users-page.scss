@@ -1,0 +1,215 @@
+@import '../../sass/abstracts/variables';
+
+.users {
+    min-height: 88vh;
+    width: 98%;
+    padding: 1rem;
+    padding-bottom: 15rem;
+
+    &__heading {
+        font-weight: 400;
+        font-size: 2.5rem;
+
+        &--1 {
+            color: blue;
+        }
+
+        &--2 {
+            color: green;
+        }
+
+        &--3 {
+            color: red
+        }
+    }
+
+    &__count {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(min-content, 15rem));
+        grid-gap: 1rem;
+
+        background-color: $color-white;
+        box-shadow: 1px 2px 7px 0px rgba(0,0,0,0.75);
+        padding: 2rem;
+        border-radius: 1.2rem;
+        margin-top: .3rem;
+    }
+
+    &__count-box {
+
+        &--number {
+            font-size: 2.2rem;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-weight: 400;
+        }
+
+        &--text {
+            color: $text-color;
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+    }
+
+    &__sort {
+        padding: 1rem 2rem;
+    }
+
+    &__sort-heading {
+        // color: $text-color;
+        font-size: 1.4rem;
+        margin-top: 1rem;
+    }
+
+    &__sort-box {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(20rem, 25rem));
+        grid-gap: 1.5rem;
+    }
+
+    &__dropdown {
+        position: relative;
+
+        &--status {
+            font-size: 1.4rem;
+            color: $text-color;
+            margin-bottom: -.4rem;
+        }
+        
+        &--heading {
+            color: $text-color;
+            font-size: 1.5rem;
+            cursor: pointer;
+            text-decoration: underline;
+
+            display: flex;
+            align-items: center;
+
+            & span {
+                margin-right: .4rem;
+            }
+
+
+            &:hover {
+                color: $color-primary-dark;
+            }
+        }
+
+        &--list {
+            display: none;
+            opacity: 0;
+            position: absolute;
+            background-color: $color-white;
+            box-shadow: 1px 2px 7px 0px rgba(0,0,0,0.75);
+            max-height: 15rem;
+            overflow-y: scroll;
+            transition: all .2s
+        }
+        
+        &--list-item {
+            list-style-type: none;
+            padding: .1rem 1rem;
+            font-size: 1.2rem;
+            background-color: $color-grey-light-2;
+            margin-bottom: .2rem;
+            margin-top: .2rem;
+            cursor: pointer;
+
+            &:hover {
+                background-color: $color-primary;
+                color: $color-white;
+            }
+        }
+    }
+
+    &__table-heading-box {
+        display: grid;
+        grid-template-columns: .8fr .6fr 1fr .7fr .6fr .5fr;
+
+        background-color: $color-primary-dark;
+        padding: .72rem;
+        border-radius: .8rem;
+        margin-top: 1rem;
+    }
+
+    &__table-heading {
+        color: $color-white;
+        font-size: 1.4rem;
+
+    }
+
+    &__table-data-box {
+        display: grid;
+        grid-template-columns: .8fr .6fr 1fr .7fr .6fr .5fr;
+        padding: .5rem .3rem;
+        color: $text-color;
+        cursor: pointer;
+        transition: all .2s;
+
+        &:hover {
+            background-color: $color-primary;
+            color: $color-white;
+        }
+    }
+
+    &__table-data-box:nth-child(2n) {
+        background-color: $color-grey-light-3;
+        transition: all .2s;
+
+        &:hover {
+            background-color: $color-primary;
+            color: $color-white;
+        }
+    }
+
+    &__table-data {
+        font-size: 1.3rem;
+    }
+
+    &__table-deactivate,  &__table-activate {
+        display: flex;
+        align-items: center;
+        text-decoration: underline;
+
+        & span {
+            margin-right: .3rem;
+        }
+    }
+
+    &__activate {
+        display: flex;
+        align-items: center;
+        text-decoration: underline;
+
+        & span {
+            margin-right: .3rem;
+        }
+    }
+
+    &__table-more {
+        margin-top: 2rem;
+        padding: .5rem 4rem;
+        border: 1px solid $color-primary-dark;
+        background-color: $color-white;
+        color: $color-primary-dark;
+        cursor: pointer;
+        border-radius: 1.2rem;
+        box-shadow: 1px 2px 7px 0px rgba(0,0,0,0.75);
+
+        &:hover {
+            background-color: $color-primary;
+            color: $color-white;
+        }
+
+    }
+
+}
+
+.align-center {
+    display: flex;
+    justify-content: center;
+}
+
+.dropdown-hover:hover  .users__dropdown--list {
+    display: block;
+    opacity: 1;
+}

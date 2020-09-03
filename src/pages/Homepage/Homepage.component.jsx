@@ -18,7 +18,7 @@ const Homepage = () => (
                 <button className="homepage__box--action">View</button>
             </div>
             <div className="homepage__box homepage__box--2">
-                <h5 className="homepage__box--heading">Activated</h5>
+                <h5 className="homepage__box--heading">Activated Users</h5>
                 <div className="homepage__box--flex">
                     <FiUserCheck className="homepage__box--icon" />
                     <p className="homepage__box--number">2309</p>

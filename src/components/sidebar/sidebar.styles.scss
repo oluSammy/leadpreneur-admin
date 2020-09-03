@@ -3,11 +3,11 @@
 .sidebar {
     margin-top: 1rem;
     background-color: $color-primary-dark;
-    min-height: 88.7vh;
     border-radius: 0 1.4rem 1.4rem 0;
     box-shadow: 7px -2px 15px -3px rgba(0,0,0,0.75);
     padding-top: 2rem;
     overflow: hidden;
+    height: 100%;
 
     &__img {
         width: 9rem;
