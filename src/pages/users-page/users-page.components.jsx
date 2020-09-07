@@ -22,7 +22,7 @@ const UsersPage = () => (
             </div>
             <div className="users__count-box">
                 <h5 className="users__count-box--number users__heading--3">24</h5>
-                <p className="users__count-box--text">Not Activated</p>
+                <p className="users__count-box--text">Inactivated</p>
             </div>
         </div>
         <div className="users__sort">

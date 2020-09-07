@@ -6,6 +6,7 @@ import Login from './../login-page/login.component';
 import UsersPage from './../users-page/users-page.components';
 import ActivateUserPage from './../Activate-user-page/activate-user.component';
 import DeactivateUserPage from './../Deactivate-use/Deactivate-user.components';
+import ExpiredSubscription from '../Expired-subscription/Expired-Subscription.component';
 
 
 const DashboardMain = () => (
@@ -16,6 +17,7 @@ const DashboardMain = () => (
             <Route exact path="/login" component={Login} />
             <Route exact path="/activate-users" component={ActivateUserPage} />
             <Route exact path="/deactivate-users" component={DeactivateUserPage} />
+            <Route exact path="/expired-subscription" component={ExpiredSubscription} />
         </Switch>
     </div>
 )
