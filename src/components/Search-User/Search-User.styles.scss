@@ -26,6 +26,10 @@
 
             position: absolute;
             right: 10rem;
+
+            &:hover {
+                background-color: $color-primary;
+            }
         }
     }
 }

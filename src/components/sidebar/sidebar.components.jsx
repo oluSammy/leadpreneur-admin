@@ -8,9 +8,9 @@ import { FaUserSlash } from 'react-icons/fa';
 import { FiUserCheck } from 'react-icons/fi';
 import { BiMessageSquareError } from 'react-icons/bi';
 import { TiUserAddOutline } from 'react-icons/ti';
-import { ImCancelCircle } from 'react-icons/im';
 import { GoDashboard } from 'react-icons/go';
 import { AiOutlineMan } from 'react-icons/ai';
+import { IoMdBusiness } from 'react-icons/io';
 
 import { NavLink } from 'react-router-dom';
 
@@ -51,14 +51,14 @@ const Sidebar = () => (
                 <TiUserAddOutline className="sidebar__list--icon" />
                 New Agent
             </NavLink>
-            <NavLink to="/disable-agent" className="sidebar__list--item" activeClassName="sidebar__list--active">
-                <ImCancelCircle className="sidebar__list--icon" />
-                Disable Agent
+            <NavLink to="/categories" className="sidebar__list--item" activeClassName="sidebar__list--active">
+                <IoMdBusiness className="sidebar__list--icon" />
+                Business Categories
             </NavLink>
             <NavLink to="/search-filter" className="sidebar__list--item" activeClassName="sidebar__list--active">
                 <AiOutlineMan className="sidebar__list--icon" />
                 Manage Search Filter
-            </NavLink>
+            </NavLink>            
         </ul>
     </div>
 );

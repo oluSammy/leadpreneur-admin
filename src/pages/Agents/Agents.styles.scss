@@ -1,0 +1,124 @@
+@import '../../sass/abstracts/variables';
+
+.agents {
+    min-height: 100vh;
+    padding-top: 3rem;
+    margin-right: 3rem;
+
+    &__header {
+        display: flex;
+        align-items: center;
+        margin-bottom: 1.2rem;
+    }
+
+    &__heading {
+        font-size: 2rem;
+        font-weight: 300;
+        margin-right: auto;
+        margin-right: auto;
+    }
+
+    &__form {
+        width: 50%;
+    }
+
+    &__search {
+        width: 65%;
+        padding: .8rem 1rem;
+        border: 1px solid $color-grey-dark-2;
+        border-radius: 1.7rem;
+    }
+
+    &__submit {
+        padding: .9rem 4rem;
+        border-radius: 1.7rem;
+        border: none;
+        background-color: $color-primary-dark;
+        color: $color-white;
+        font-weight: 700;
+        text-transform: capitalize;
+        cursor: pointer;
+
+        position: absolute;
+        right: 14rem;
+
+        &:hover {
+            background-color: $color-primary;
+        }
+    }
+
+    &__filter {
+        display: flex;
+        align-items: center;
+
+        & select {
+            border: .6px solid $color-grey-dark-2;
+            border-radius: 1.2rem;
+            width: 12rem;
+            padding: .2rem .4rem;
+            box-shadow: 4px 4px 11px -6px rgba(0,0,0,0.75);
+            margin-right: 4rem;
+        }
+    }
+
+    &__label {
+        font-size: 1.4rem;
+        color: $text-color;
+        margin-right: 2rem;
+    }
+
+    &__new-btn {
+        font-size: 1.4rem;
+    }
+
+    &__table {
+        margin: 3rem 2rem;
+    }
+    
+    &__table-header {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+
+        background-color: $color-primary-dark;
+        padding: .5rem .5rem;
+        border-radius: .4rem;
+
+        &--heading {
+            color: $color-white;
+            font-size: 1.6rem;
+        }
+    }
+
+    &__table-data {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        
+        padding: .4rem .7rem;
+
+        & p {
+            font-size: 1.4rem;
+            color: $text-color;
+        }
+
+        &--action {
+            text-decoration: underline;
+        }
+    }
+
+    &__more {
+        margin-top: 2rem;
+        padding: .5rem 4rem;
+        border: 1.2px solid $color-primary-dark;
+        background-color: $color-white;
+        color: $color-primary-dark;
+        cursor: pointer;
+        border-radius: 1.2rem;
+        box-shadow: 1px 2px 2px 0px rgba(0,0,0,0.75);
+    }
+}
+
+.agents__table-data:nth-child(2n) {
+    background-color: $color-grey-light-3;
+    transition: all .2s;
+}
+

@@ -63,70 +63,14 @@
     }
 
     &__sort-heading {
-        // color: $text-color;
         font-size: 1.4rem;
         margin-top: 1rem;
     }
 
     &__sort-box {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(20rem, 25rem));
-        grid-gap: 1.5rem;
-    }
-
-    &__dropdown {
-        position: relative;
-
-        &--status {
-            font-size: 1.4rem;
-            color: $text-color;
-            margin-bottom: -.4rem;
-        }
-        
-        &--heading {
-            color: $text-color;
-            font-size: 1.5rem;
-            cursor: pointer;
-            text-decoration: underline;
-
-            display: flex;
-            align-items: center;
-
-            & span {
-                margin-right: .4rem;
-            }
-
-
-            &:hover {
-                color: $color-primary-dark;
-            }
-        }
-
-        &--list {
-            display: none;
-            opacity: 0;
-            position: absolute;
-            background-color: $color-white;
-            box-shadow: 1px 2px 7px 0px rgba(0,0,0,0.75);
-            max-height: 15rem;
-            overflow-y: scroll;
-            transition: all .2s
-        }
-        
-        &--list-item {
-            list-style-type: none;
-            padding: .1rem 1rem;
-            font-size: 1.2rem;
-            background-color: $color-grey-light-2;
-            margin-bottom: .2rem;
-            margin-top: .2rem;
-            cursor: pointer;
-
-            &:hover {
-                background-color: $color-primary;
-                color: $color-white;
-            }
-        }
+        grid-template-columns: repeat(auto-fit, minmax(20rem, 24rem));
+        grid-gap: .5rem;
     }
 
     &__table-more {
@@ -146,14 +90,21 @@
 
     }
 
+    &__label {
+        font-size: 1.4rem;
+        color: $text-color;
+        margin-right: 1rem;
+    }
+
+    &__select {
+        border: .6px solid $color-grey-dark-2;
+        border-radius: 1.2rem;
+        padding: .2rem .4rem;
+        box-shadow: 4px 4px 11px -6px rgba(0,0,0,0.75);
+    }
 }
 
 .align-center {
     display: flex;
     justify-content: center;
-}
-
-.dropdown-hover:hover  .users__dropdown--list {
-    display: block;
-    opacity: 1;
 }

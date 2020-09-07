@@ -1,7 +1,6 @@
 import React from 'react';
 import './users-page.scss';
 
-import { IoIosArrowDropdown } from 'react-icons/io';
 import UserDataTable from '../../components/user-data-table/user-data-table.component';
 import SearchUser from '../../components/Search-User/Search-User.component';
 
@@ -29,54 +28,38 @@ const UsersPage = () => (
             <h3 className="users__sort-heading">Sort By:</h3>
             <div className="users__sort-box">
                 <div className="users__dropdown">
-                    <h6 className="users__dropdown--status">All</h6>
-                    <div className="dropdown-hover">
-                        <h5 className="users__dropdown--heading"> 
-                            <span>Registration Month</span> 
-                            <IoIosArrowDropdown className="users__dropdown--icon" />
-                        </h5>
-                        <ul className="users__dropdown--list">
-                            <li className="users__dropdown--list-item">All</li>
-                            <li className="users__dropdown--list-item">August 2020</li>
-                            <li className="users__dropdown--list-item">July 2020</li>
-                            <li className="users__dropdown--list-item">June 2020</li>
-                            <li className="users__dropdown--list-item">May 2020</li>
-                            <li className="users__dropdown--list-item">April 2020</li>
-                        </ul>
-                    </div>
+                    <label htmlFor="reg-month" className="users__label">Registration Month:</label>
+                    <select name="reg-month" id="reg-month" className="users__select">
+                        <option value="all">All</option>
+                        <option value="aug-2020">August 2020</option>
+                        <option value="aug-2020">August 2020</option>
+                        <option value="aug-2020">August 2020</option>
+                        <option value="aug-2020">August 2020</option>
+                        <option value="aug-2020">August 2020</option>
+                        <option value="aug-2020">August 2020</option>
+                    </select>
+                </div>
+
+                <div className="users__dropdown" style={{marginLeft: '1.5rem'}}>
+                    <label htmlFor="agents" className="users__label">Agents:</label>
+                    <select name="agents" id="agents" className="users__select">
+                        <option value="all">All</option>
+                        <option value="aug-2020">August 2020</option>
+                        <option value="aug-2020">August 2020</option>
+                        <option value="aug-2020">August 2020</option>
+                        <option value="aug-2020">August 2020</option>
+                        <option value="aug-2020">August 2020</option>
+                        <option value="aug-2020">August 2020</option>
+                    </select>
                 </div>
 
                 <div className="users__dropdown">
-                    <h6 className="users__dropdown--status">All</h6>
-                    <div className="dropdown-hover">
-                        <h5 className="users__dropdown--heading">
-                            <span>Agents</span> 
-                            <IoIosArrowDropdown className="users__dropdown--icon" />
-                        </h5>
-                        <ul className="users__dropdown--list">
-                            <li className="users__dropdown--list-item">All</li>
-                            <li className="users__dropdown--list-item">August 2020</li>
-                            <li className="users__dropdown--list-item">July 2020</li>
-                            <li className="users__dropdown--list-item">June 2020</li>
-                            <li className="users__dropdown--list-item">May 2020</li>
-                            <li className="users__dropdown--list-item">April 2020</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div className="users__dropdown">
-                    <h6 className="users__dropdown--status">All</h6>
-                    <div className="dropdown-hover">
-                        <h5 className="users__dropdown--heading">
-                            <span>Activation</span> 
-                            <IoIosArrowDropdown className="users__dropdown--icon" />
-                        </h5>
-                        <ul className="users__dropdown--list">
-                            <li className="users__dropdown--list-item">All</li>
-                            <li className="users__dropdown--list-item">Activated</li>
-                            <li className="users__dropdown--list-item">Non Activated</li>
-                        </ul>
-                    </div>
+                    <label htmlFor="activation-status" className="users__label">Activation Status: </label>
+                    <select name="activation-status" id="activation-status" className="users__select">
+                        <option value="all">All</option>
+                        <option value="aug-2020">Activated</option>
+                        <option value="aug-2020">Inactive</option>
+                    </select>                    
                 </div>
             </div>
         </div>
