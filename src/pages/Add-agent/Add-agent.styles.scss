@@ -1,0 +1,41 @@
+@import '../../sass/abstracts/variables';
+
+.add-agent {
+    min-height: 80vh;
+
+    &__heading {
+        font-size: 2.2rem;
+        margin-top: 2rem;
+        font-weight: 300;
+    }
+
+    &__form {
+        margin-top: 3rem;
+    }
+
+    &__label {
+        font-size: 1.4rem;
+        margin-right: 2rem;
+        color: $text-color;
+    }
+
+    &__input {
+        padding: .4rem 1rem;
+        width: 25rem;
+        border: 1px solid grey;
+        margin-right: 3rem;
+    }
+
+    &__submit {
+        padding: .3rem 1.4rem;
+        background-color: $color-primary;
+        border: none;
+        color: $color-white;
+        font-weight: 700;
+        cursor: pointer;
+    }
+
+    &__icon {
+        color: $color-white !important;
+    }
+}

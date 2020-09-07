@@ -8,6 +8,7 @@ import ActivateUserPage from './../Activate-user-page/activate-user.component';
 import DeactivateUserPage from './../Deactivate-use/Deactivate-user.components';
 import ExpiredSubscription from '../Expired-subscription/Expired-Subscription.component';
 import Agents from '../Agents/Agents.components';
+import AddAgent from '../Add-agent/Add-agent.component';
 
 
 const DashboardMain = () => (
@@ -20,6 +21,7 @@ const DashboardMain = () => (
             <Route exact path="/deactivate-users" component={DeactivateUserPage} />
             <Route exact path="/expired-subscription" component={ExpiredSubscription} />
             <Route exact path="/agents" component={Agents} />
+            <Route exact path="/new-agent" component={AddAgent} />
         </Switch>
     </div>
 )
