@@ -18,10 +18,6 @@
         }
     }
 
-    &__form {
-
-    }
-
     &__input {
         margin-top: .8rem;
         padding: .3rem 1.7rem;
@@ -52,6 +48,7 @@
 
         &--action {
             text-decoration: underline;
+            cursor: pointer;
         }
     }
 

@@ -10,6 +10,7 @@ import ExpiredSubscription from '../Expired-subscription/Expired-Subscription.co
 import Agents from '../Agents/Agents.components';
 import AddAgent from '../Add-agent/Add-agent.component';
 import BusinessCategory from '../Business-Category/Business-Category.components';
+import SearchFilter from '../Search-Filter/Search-Filter.components';
 
 
 const DashboardMain = () => (
@@ -24,6 +25,7 @@ const DashboardMain = () => (
             <Route exact path="/agents" component={Agents} />
             <Route exact path="/new-agent" component={AddAgent} />
             <Route exact path="/category" component={BusinessCategory} />
+            <Route exact path="/search-filter" component={SearchFilter} />
         </Switch>
     </div>
 )

@@ -1,0 +1,107 @@
+@import '../../sass/abstracts/variables';
+
+.filter {
+    min-height: 80vh;
+
+    &__header {
+        display: flex;
+        align-items: center;
+        margin-top: 3rem;     
+        margin-bottom: 3rem;
+    }
+
+    &__heading {
+        font-size: 2rem;
+        font-weight: 300;
+        margin-right: auto;
+    }
+
+    &__form {
+        margin-right: 10rem;
+        width: 40%;
+    }
+
+    &__input {
+        width: 80%;
+        padding: .5rem 1rem;
+        
+        padding: .8rem 1rem;
+        border: 1px solid $color-grey-dark-2;
+        border-radius: 1.7rem;
+    }
+
+    &__submit {
+        padding: .9rem 4rem;
+        border-radius: 1.7rem;
+        border: none;
+        background-color: $color-primary-dark;
+        color: $color-white;
+        font-weight: 700;
+        text-transform: capitalize;
+        cursor: pointer;
+
+        position: absolute;
+        right: 12rem;
+
+        &:hover {
+            background-color: $color-primary;
+        }
+    }
+
+    &__link {
+        font-size: 1.4rem;
+    }
+
+    &__table {
+        margin-top: 2rem;
+        width: 70%;
+
+        &--heading {
+            color: $color-white;
+            font-size: 1.4rem;
+        }
+
+        &--data {
+            font-size: 1.2rem;
+            color: $text-color;
+        }
+
+        &--action {
+            text-decoration: underline;
+            cursor: pointer;
+        }
+    }
+
+    &__grid {
+        display: grid;
+        grid-template-columns: .5fr 1fr 1fr 1fr 1fr;
+        grid-column-gap: 1rem;
+    }
+    
+    &__table-header {
+        background-color: $color-primary-dark;
+        padding: .4rem .4rem;
+        margin-bottom: .3rem;
+        border-radius: .7rem;
+    }
+    
+    &__table-data {
+        padding: .4rem 1rem;
+        cursor: pointer;
+
+        & select {
+            width: 60%;
+            cursor: pointer;
+            border: none;
+        }
+
+        &:nth-child(2n) {
+            background-color: $color-grey-light-3;
+            transition: all .2s;
+        }
+
+        &:hover {
+            background-color: $color-primary;
+        }
+    }
+}
