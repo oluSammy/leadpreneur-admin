@@ -51,7 +51,7 @@ const Sidebar = () => (
                 <TiUserAddOutline className="sidebar__list--icon" />
                 New Agent
             </NavLink>
-            <NavLink to="/categories" className="sidebar__list--item" activeClassName="sidebar__list--active">
+            <NavLink to="/category" className="sidebar__list--item" activeClassName="sidebar__list--active">
                 <IoMdBusiness className="sidebar__list--icon" />
                 Business Categories
             </NavLink>

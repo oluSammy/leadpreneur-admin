@@ -9,6 +9,7 @@ import DeactivateUserPage from './../Deactivate-use/Deactivate-user.components';
 import ExpiredSubscription from '../Expired-subscription/Expired-Subscription.component';
 import Agents from '../Agents/Agents.components';
 import AddAgent from '../Add-agent/Add-agent.component';
+import BusinessCategory from '../Business-Category/Business-Category.components';
 
 
 const DashboardMain = () => (
@@ -22,6 +23,7 @@ const DashboardMain = () => (
             <Route exact path="/expired-subscription" component={ExpiredSubscription} />
             <Route exact path="/agents" component={Agents} />
             <Route exact path="/new-agent" component={AddAgent} />
+            <Route exact path="/category" component={BusinessCategory} />
         </Switch>
     </div>
 )
