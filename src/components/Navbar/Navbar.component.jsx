@@ -21,7 +21,7 @@ const Navbar = () => (
         <FiUsers className="navbar__list--icon" /> 
         Users 
       </NavLink>
-      <NavLink to="/" className="navbar__list--item navbar-link">
+      <NavLink to="/agents" className="navbar__list--item navbar-link">
         <RiUserShared2Line className="navbar__list--icon" />
         Agents
       </NavLink>

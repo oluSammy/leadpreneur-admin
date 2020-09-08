@@ -15,6 +15,7 @@ const Dashboard = () => (
         </div>
         <div className="dashboard__main">
             <DashboardMain /> 
+            
         </div>
     </div>    
 );

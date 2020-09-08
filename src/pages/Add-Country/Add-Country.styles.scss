@@ -1,0 +1,54 @@
+@import '../../sass/abstracts/variables';
+
+.add-country {
+    min-height: 80vh;
+
+    &__header {
+        display: flex;
+        align-items: center;
+        margin-top: 3rem;
+        margin-bottom: 2rem;
+    }
+
+    &__heading {
+        font-size: 3rem;
+        font-weight: 300;
+    }
+
+    &__icon {
+        font-size: 3.5rem;
+        margin-left: 2rem;
+    }
+
+    &__form-input {
+        margin-bottom: 1.6rem;
+    }
+
+    &__label {
+        font-size: 1.6rem;
+        margin-right: 1.4rem;
+        color: $text-color;
+    }
+
+    &__input {
+        padding: .4rem 1rem;
+        width: 25rem;
+        border-radius: .4rem;
+        border: 1px solid grey;
+    }
+
+    &__submit {
+        padding: .4rem 2rem;
+        cursor: pointer;
+        font-size: 1.6rem;
+        font-weight: 600;
+        color: $color-white;
+        border: none;
+        background-color: $color-primary;
+        border-radius: .5rem;
+
+        &:hover {
+            box-shadow: 4px 3px 11px -3px rgba(0,0,0,0.75);
+        }
+    }
+}
