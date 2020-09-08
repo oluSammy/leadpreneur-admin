@@ -12,6 +12,7 @@ import AddAgent from '../Add-agent/Add-agent.component';
 import BusinessCategory from '../Business-Category/Business-Category.components';
 import SearchFilter from '../Search-Filter/Search-Filter.components';
 import AddCountry from '../Add-Country/Add-Country.components';
+import Country from '../Country/Country.components';
 
 
 const DashboardMain = () => (
@@ -28,6 +29,7 @@ const DashboardMain = () => (
             <Route exact path="/category" component={BusinessCategory} />
             <Route exact path="/search-filter" component={SearchFilter} />
             <Route exact path="/new-country" component={AddCountry} />
+            <Route exact path="/country/nigeria" component={Country} />
         </Switch>
     </div>
 )
