@@ -1,5 +1,6 @@
 import React from 'react';
 import './dashboard-main.styles.scss';
+
 import { Route, Switch } from 'react-router-dom';
 import Homepage from './../Homepage/Homepage.component';
 import UsersPage from './../users-page/users-page.components';
@@ -13,6 +14,7 @@ import SearchFilter from '../Search-Filter/Search-Filter.components';
 import AddCountry from '../Add-Country/Add-Country.components';
 import Country from '../Country/Country.components';
 import UserSearch from './../Search-User/User-Search.components';
+import AgentsSearch from '../Agents-Search/Agents-Search.component';
 
 
 const DashboardMain = () => (
@@ -30,6 +32,7 @@ const DashboardMain = () => (
             <Route exact path="/new-country" component={AddCountry} />
             <Route exact path="/country/nigeria" component={Country} />
             <Route exact path="/search-user" component={UserSearch} />
+            <Route exact path="/search-agent" component={AgentsSearch} />
         </Switch>
     </div>
 )
