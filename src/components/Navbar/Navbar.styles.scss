@@ -7,6 +7,13 @@
     color: $color-white;
     padding: .5rem 4rem;
 
+
+    &__menu {
+        font-size: 3.5rem;
+        margin-right: 1.4rem;
+        cursor: pointer;
+    }
+
     &__logo {
         margin-right: auto;
 

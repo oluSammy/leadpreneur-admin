@@ -3,6 +3,8 @@ import './Navbar.styles.scss';
 
 import { FiUsers } from 'react-icons/fi';
 import { AiOutlineLogout } from 'react-icons/ai';
+// import { AiOutlineClose } from 'react-icons/ai';
+// import { HiOutlineMenu } from 'react-icons/hi';
 import { RiUserShared2Line, RiFacebookCircleLine } from 'react-icons/ri';
 import { IoLogoInstagram } from 'react-icons/io';
 import { TiSocialTwitterCircular } from 'react-icons/ti';
@@ -10,6 +12,8 @@ import { NavLink } from 'react-router-dom';
 
 const Navbar = () => (
   <div className="navbar">
+    {/* <HiOutlineMenu className="navbar__menu"/> */}
+    {/* <AiOutlineClose className="navbar__menu" /> */}
     <div className="navbar__logo">
       <h1 className="navbar__logo--text">
         <span className="lead">Leadpreneuer</span>

@@ -3,7 +3,6 @@
 .dashboard {
     display: grid;
     grid-template-columns: minmax(min-content, 22vw) minmax(min-content, 78vw);
-    // grid-template-rows: min-content 100vh min-content;
 
     background-color: $color-grey-light;
     position: relative;
@@ -14,19 +13,25 @@
     }
 
     &__sidebar {
-        // margin-right: 3rem;
         position: fixed;
         width: 18vw;
 
         @media only screen and (max-width: $bp-large) {
             width: 21vw;
         }
+
+        @media only screen and (max-width: $bp-large) {
+            transform: translateX(-100%);
+        }
         
     }
 
      &__main {
-        //   background-color: palevioletred;
         grid-column: 2 / -1;
+
+        @media only screen and (max-width: $bp-large) {
+            grid-column: 1 / -1;
+        }
 
      }
 }

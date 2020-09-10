@@ -19,6 +19,10 @@ html {
     @media only screen and (max-width: $bp-tab) {
         font-size: 50%;
     }
+
+    @media only screen and (max-width: $bp-phone-landscape) {
+        font-size: 45%;
+    }
 }
 
 body {
