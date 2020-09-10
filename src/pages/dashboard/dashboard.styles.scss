@@ -14,9 +14,14 @@
     }
 
     &__sidebar {
-        margin-right: 3rem;
+        // margin-right: 3rem;
         position: fixed;
         width: 18vw;
+
+        @media only screen and (max-width: $bp-large) {
+            width: 21vw;
+        }
+        
     }
 
      &__main {

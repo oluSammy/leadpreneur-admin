@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.scss';
 import Dashboard from './pages/dashboard/dashboard.component';
-import Login from './pages/login-page/login.component';
+// import Login from './pages/login-page/login.component';
 
 function App() {
   return (
