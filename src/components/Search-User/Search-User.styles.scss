@@ -7,6 +7,10 @@
         width: 50%;
         position: relative;
 
+        @media only screen and  (max-width: $bp-tab) {
+            width: 60%;
+        }
+
         &--input {
             width: 80%;
             padding: .8rem 1rem;
@@ -25,7 +29,7 @@
             cursor: pointer;
 
             position: absolute;
-            right: 10rem;
+            right: 0;
 
             &:hover {
                 background-color: $color-primary;

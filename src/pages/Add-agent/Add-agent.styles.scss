@@ -3,6 +3,10 @@
 .add-agent {
     min-height: 80vh;
 
+    @media only screen and (max-width: $bp-large) {
+        margin-left: 3rem;
+    }
+
     &__heading {
         font-size: 2.2rem;
         margin-top: 2rem;
@@ -27,12 +31,14 @@
     }
 
     &__submit {
-        padding: .3rem 1.4rem;
+        padding: .8rem 3.4rem;
         background-color: $color-primary;
         border: none;
         color: $color-white;
         font-weight: 700;
         cursor: pointer;
+        display: block;
+        margin-top: 3rem;
     }
 
     &__icon {

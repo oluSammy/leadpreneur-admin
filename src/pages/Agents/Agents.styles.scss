@@ -3,12 +3,19 @@
 .agents {
     min-height: 100vh;
     padding-top: 3rem;
-    margin-right: 3rem;
+
+    @media only screen and (max-width: $bp-large-2) {
+
+    }
 
     &__header {
         display: flex;
         align-items: center;
         margin-bottom: 1.2rem;
+
+        @media only screen and (max-width: $bp-large-2) {
+            margin-left: 2rem;
+        }
     }
 
     &__heading {
@@ -27,6 +34,10 @@
         padding: .8rem 1rem;
         border: 1px solid $color-grey-dark-2;
         border-radius: 1.7rem;
+
+        @media only screen and (max-width: $bp-large-2) {
+            width: 90%;
+        }
     }
 
     &__submit {
@@ -41,6 +52,10 @@
 
         position: absolute;
         right: 14rem;
+
+        @media only screen and (max-width: $bp-large-2) {
+            right: 2rem;
+        }
 
         &:hover {
             background-color: $color-primary;
@@ -58,6 +73,10 @@
             padding: .2rem .4rem;
             box-shadow: 4px 4px 11px -6px rgba(0,0,0,0.75);
             margin-right: 4rem;
+        }
+
+        @media only screen and (max-width: $bp-large-2) {
+            margin-left: 2rem;
         }
     }
 

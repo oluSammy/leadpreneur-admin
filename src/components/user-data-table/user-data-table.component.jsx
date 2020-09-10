@@ -11,7 +11,7 @@ const UserDataTable = () => (
             <h4 className="user-data__heading-text">Email</h4>
             <h4 className="user-data__heading-text">Phone Number</h4>
             <h4 className="user-data__heading-text">Action</h4>
-            <h4 className="user-data__heading-text">Expiration Date</h4>
+            <h4 className="user-data__heading-text">Expiration</h4>
         </div>
         <div className="user-data__data-box">
             <p className="user-data__text">Olumorin Samuel</p>

@@ -3,6 +3,10 @@
 .filter {
     min-height: 80vh;
 
+    @media only screen and (max-width: $bp-large) {
+        margin-left: 3rem;
+    }
+
     &__header {
         display: flex;
         align-items: center;
@@ -19,6 +23,10 @@
     &__form {
         margin-right: 10rem;
         width: 40%;
+
+        @media only screen and (max-width: $bp-tab) {
+            width: 60%;
+        }
     }
 
     &__input {

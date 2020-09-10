@@ -40,7 +40,7 @@ const UsersPage = () => (
                     </select>
                 </div>
 
-                <div className="users__dropdown" style={{marginLeft: '1.5rem'}}>
+                <div className="users__dropdown">
                     <label htmlFor="agents" className="users__label">Agents:</label>
                     <select name="agents" id="agents" className="users__select">
                         <option value="all">All</option>

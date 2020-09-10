@@ -68,9 +68,12 @@
     }
 
     &__sort-box {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(20rem, 24rem));
-        grid-gap: .5rem;
+        display: flex;
+        align-items: center;
+    }
+
+    &__dropdown:not(:last-child) {
+        margin-right: 2rem;
     }
 
     &__table-more {

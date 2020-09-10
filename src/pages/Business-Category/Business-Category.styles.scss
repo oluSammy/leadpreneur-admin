@@ -4,6 +4,10 @@
     min-height: 80vh;
     padding-top: 3rem;
 
+    @media only screen and (max-width: $bp-large) {
+        margin-left: 3rem;
+    }
+
     &__heading {
         font-size: 2.6rem;
         font-weight: 300;
@@ -36,6 +40,10 @@
     &__table {
         margin-top: 4rem;
         width: 40%;
+
+        @media only screen and (max-width: $bp-tab) {
+            width: 60%;
+        }
 
         &--heading {
             font-size: 1.5rem;
