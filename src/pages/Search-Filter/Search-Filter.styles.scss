@@ -64,6 +64,10 @@
         margin-top: 2rem;
         width: 70%;
 
+        @media only screen and (max-width: $bp-phone-landscape) {
+            width: 90%;
+        }
+
         &--heading {
             color: $color-white;
             font-size: 1.4rem;
