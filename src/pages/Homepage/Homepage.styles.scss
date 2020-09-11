@@ -63,6 +63,7 @@
             box-shadow: 1px 3px 19px 0px rgba(0,0,0,0.75);
             cursor: pointer;
             transition: all .2s;
+            
 
             &:hover {
                 transform: scale(1.09);
@@ -97,7 +98,7 @@
         background-color: $color-white;
         padding: 2rem;
         border-radius: 1.6rem;
-
+        
     }
     &__action {
         padding: .7rem;
@@ -105,6 +106,7 @@
         color: $color-white;
         cursor: pointer;
         padding-left: 2rem;
+        text-decoration: none;
 
         &:hover {
             transform: translateY(-4px);

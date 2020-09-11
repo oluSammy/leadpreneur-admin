@@ -4,14 +4,10 @@
     min-height: 100vh;
     padding-top: 3rem;
 
-    @media only screen and (max-width: $bp-large-2) {
-
-    }
-
     &__header {
         display: flex;
         align-items: center;
-        margin-bottom: 1.2rem;
+        margin-bottom: 3rem;
 
         @media only screen and (max-width: $bp-large-2) {
             margin-left: 2rem;
@@ -22,11 +18,14 @@
         font-size: 2rem;
         font-weight: 300;
         margin-right: auto;
-        margin-right: auto;
     }
 
     &__form {
         width: 50%;
+
+        @media only screen and (max-width: $bp-tab-2) {
+            width: 65%;
+        }
     }
 
     &__search {
@@ -34,6 +33,11 @@
         padding: .8rem 1rem;
         border: 1px solid $color-grey-dark-2;
         border-radius: 1.7rem;
+
+        &::placeholder {
+            color: $text-color;
+            font-size: 1.4rem;
+        }
 
         @media only screen and (max-width: $bp-large-2) {
             width: 90%;
@@ -92,6 +96,15 @@
 
     &__table {
         margin: 3rem 2rem;
+
+        @media only screen and (max-width: $bp-phone) {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(8rem, 15rem));
+            grid-row-gap: 2rem;
+            grid-column-gap: 2rem;
+            margin-left: 4rem;
+        }
+
     }
     
     &__table-header {
@@ -101,6 +114,10 @@
         background-color: $color-primary-dark;
         padding: .5rem .5rem;
         border-radius: .4rem;
+
+        @media only screen and (max-width: $bp-phone) {
+            display: none;
+        }
 
         &--heading {
             color: $color-white;
@@ -113,6 +130,13 @@
         grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
         
         padding: .4rem .7rem;
+
+        @media only screen and (max-width: $bp-phone) {
+            display: block;
+            box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+            border-radius: 1rem;
+            padding: .4rem;
+        }
 
         & p {
             font-size: 1.4rem;
@@ -140,5 +164,9 @@
 .agents__table-data:nth-child(2n) {
     background-color: $color-grey-light-3;
     transition: all .2s;
+
+    @media only screen and (max-width: $bp-phone) {
+        background-color: $color-grey-light;
+    }
 }
 

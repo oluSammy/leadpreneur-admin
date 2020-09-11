@@ -3,6 +3,7 @@ import './Agents.styles.scss';
 
 import { HiOutlineDocumentAdd } from 'react-icons/hi';
 import { FcCancel, FcCheckmark } from 'react-icons/fc';
+
 import { Link } from 'react-router-dom';
 
 const Agents = () => (

@@ -5,6 +5,8 @@ import { FiUsers, FiUserCheck, FiUserX, FiUserPlus } from 'react-icons/fi';
 import { FaUserTie } from 'react-icons/fa';
 import { AiOutlineUserAdd } from 'react-icons/ai';
 
+import { Link } from 'react-router-dom';
+
 
 const Homepage = () => (
     <div className="homepage">
@@ -36,22 +38,22 @@ const Homepage = () => (
         </div>
 
         <div className="homepage__actions">
-            <div className="homepage__action homepage__action--1">
+            <Link to="/new-agent" className="homepage__action homepage__action--1">
                 <FiUserPlus className="homepage__action--icon"/>
                 <h6 className="homepage__action--text">New Agent</h6>
-            </div>
+            </Link>
             <div className="homepage__action homepage__action--2">
                 <AiOutlineUserAdd className="homepage__action--icon"/>
                 <h6 className="homepage__action--text">Create Admin</h6>
             </div>
-            <div className="homepage__action homepage__action--3">
+            <Link to="activate-users" className="homepage__action homepage__action--3">
                 <FiUserCheck className="homepage__action--icon"/>
                 <h6 className="homepage__action--text">Activate User</h6>
-            </div>
-            <div className="homepage__action homepage__action--4">
+            </Link>
+            <Link to="/deactivate-users" className="homepage__action homepage__action--4">
                 <FiUserX className="homepage__action--icon"/>
                 <h6 className="homepage__action--text">Deactivate User</h6>
-            </div>
+            </Link>
         </div>
     </div>
 );
