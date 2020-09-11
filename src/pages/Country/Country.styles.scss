@@ -3,6 +3,10 @@
 .country-page{
     min-height: 80vh;
 
+    @media only screen and (max-width: $bp-large) {
+        margin-left: 5rem;
+    }
+
     &__heading {
         margin-top: 3rem;
         font-size: 3rem;
@@ -41,14 +45,6 @@
     &__table {
         margin-top: 3rem;
         width: 20%;
-
-        &--states {
-            
-        }
-
-        &--cities {
-
-        }
     }
 
     &__grid {

@@ -14,8 +14,7 @@ const Dashboard = () => (
             <Sidebar />
         </div>
         <div className="dashboard__main">
-            <DashboardMain /> 
-            
+            <DashboardMain />            
         </div>
     </div>    
 );
