@@ -6,7 +6,7 @@
 
     &__box {
         width: 45vw;
-        margin: 15vh auto 0 auto;
+        margin: 10vh auto 0 auto;
         display: flex;
         background-color: $color-white;
         box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.75);
@@ -59,29 +59,44 @@
 
     &__form-group {
         margin-top: 3rem;
-        display: flex;
-        align-items: center;
+        position: relative;
+        // display: flex;
+        // align-items: center;
     }
 
     &__icon {
-        font-size: 1.7rem;
-        margin-right: 1.4rem;
+        font-size: 1.4rem;
+        // margin-right: 1.4rem;
         color: $color-primary;
+        position: absolute;
+        top: 1rem;
+        left: .4rem;
+
+        @media only screen and (max-width: $bp-phone) {
+            top: 1.7rem;
+        }
     }
 
     &__input {
-        padding: .8rem 2rem;
+        padding: 1rem 3rem;
         border: none;
         background-color: $color-grey-light;
         box-shadow: 2px 2px 6px -2px rgba(0,0,0,0.75);
         border-radius: .4rem;
-        width: 80%;
+        width: 100%;
 
         @media only screen and (max-width: $bp-phone) {
-            padding: 1.3rem 2rem;
-            width: 90%;
+            padding: 1.3rem 4rem;
+            width: 100%;
         }
-    }   
+    }
+
+    &__error-msg {
+        margin-left: 1rem;
+        margin-top: .3rem;
+        font-size: 1.3rem;
+        color: red;
+    }
 
     &__submit {
         margin-top: 3.5rem;
@@ -93,6 +108,18 @@
         font-size: 1.6rem;
         border-radius: .5rem;
         cursor: pointer;
+        width: 100%;
+
+        display: flex;
+        align-items: center;
+
+        & span {
+            margin-right: 1rem;
+
+            @media only screen and (max-width: $bp-phone) {
+                margin-left: 7rem;
+            }
+        }
 
         &:hover {
             box-shadow: 7px 7px 12px -7px rgba(0,0,0,0.75);
@@ -100,9 +127,13 @@
 
         @media only screen and (max-width: $bp-phone) {
             width: 100%;
-            padding: 1rem 4rem;
+            // padding: 1rem 2rem;
             font-size: 3rem;
         }
+    }
+
+    &__submit-icon {
+        margin-top: 0rem;
     }
 
     &__bg {

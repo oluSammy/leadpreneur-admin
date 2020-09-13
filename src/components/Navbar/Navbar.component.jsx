@@ -8,9 +8,13 @@ import { AiOutlineLogout } from 'react-icons/ai';
 import { RiUserShared2Line, RiFacebookCircleLine } from 'react-icons/ri';
 import { IoLogoInstagram } from 'react-icons/io';
 import { TiSocialTwitterCircular } from 'react-icons/ti';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
+import { auth } from './../../firebase/firebase.utils';
+import { connect } from 'react-redux';
+import { selectUserSlice } from './../../Redux/User/user.selectors';
 
-const Navbar = () => (
+
+const Navbar = ({ currentUser }) => (
   <div className="navbar">
     {/* <HiOutlineMenu className="navbar__menu"/> */}
     {/* <AiOutlineClose className="navbar__menu" /> */}
@@ -20,20 +24,23 @@ const Navbar = () => (
         <span className="africa">Africa</span>
       </h1>
     </div>
-    <ul className="navbar__list">
-      <NavLink to="/users" className="navbar__list--item navbar-link">
-        <FiUsers className="navbar__list--icon" /> 
-        Users 
-      </NavLink>
-      <NavLink to="/agents" className="navbar__list--item navbar-link">
-        <RiUserShared2Line className="navbar__list--icon" />
-        Agents
-      </NavLink>
-      <NavLink to="/" className="navbar__list--item navbar-link">
-        <AiOutlineLogout className="navbar__list--icon" />
-        Sign out
-      </NavLink>
-    </ul>
+      {
+        currentUser && 
+          <ul className="navbar__list">      
+            <NavLink to="/users" className="navbar__list--item navbar-link">
+              <FiUsers className="navbar__list--icon" /> 
+              Users 
+            </NavLink>
+            <NavLink to="/agents" className="navbar__list--item navbar-link">
+              <RiUserShared2Line className="navbar__list--icon" />
+              Agents
+            </NavLink>          
+            <Link onClick={() => auth.signOut()} className="navbar__list--item navbar-link">
+              <AiOutlineLogout className="navbar__list--icon" />
+              Sign out
+            </Link>
+          </ul>
+      }
 
     <ul className="navbar__socials">
       <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" className="navbar__socials--item">
@@ -48,4 +55,10 @@ const Navbar = () => (
     </ul>
   </div>
 );
-export default Navbar;
+
+const mapStateToProps = state => ({
+  currentUser: selectUserSlice(state)
+})
+
+
+export default connect(mapStateToProps) (Navbar);
