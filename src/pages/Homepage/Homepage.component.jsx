@@ -6,16 +6,22 @@ import { FaUserTie } from 'react-icons/fa';
 import { AiOutlineUserAdd } from 'react-icons/ai';
 
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { selectIsGettingUserCountSlice, selectUserCountError, selectUserCountSlice } from './../../Redux/Count/user-count.selectors';
 
 
-const Homepage = () => (
+const Homepage = ({ userCount, isGettingUserCount, userCountError }) => (
     <div className="homepage">
         <div className="homepage__boxes">            
             <div className="homepage__box homepage__box--1">
                 <h5 className="homepage__box--heading">Registered Users</h5>
                 <div className="homepage__box--flex">
                     <FiUsers className="homepage__box--icon" />
-                    <p className="homepage__box--number">2309</p>
+                    <p className="homepage__box--number">
+                        {
+                            userCount && !isGettingUserCount ? userCount.registeredUsers : '.'
+                        }
+                    </p>
                 </div>
                 <button className="homepage__box--action">View</button>
             </div>
@@ -23,7 +29,11 @@ const Homepage = () => (
                 <h5 className="homepage__box--heading">Activated Users</h5>
                 <div className="homepage__box--flex">
                     <FiUserCheck className="homepage__box--icon" />
-                    <p className="homepage__box--number">2309</p>
+                    <p className="homepage__box--number">
+                        {
+                            userCount && !isGettingUserCount ? userCount.activatedUsers : '.'
+                        }
+                    </p>
                 </div>
                 <button className="homepage__box--action">View</button>
             </div>
@@ -31,7 +41,11 @@ const Homepage = () => (
                 <h5 className="homepage__box--heading">Agents</h5>
                 <div className="homepage__box--flex">
                     <FaUserTie className="homepage__box--icon" />
-                    <p className="homepage__box--number">29</p>
+                    <p className="homepage__box--number">
+                        {
+                            userCount && !isGettingUserCount ? userCount.agents : '.'
+                        }
+                    </p>
                 </div>
                 <button className="homepage__box--action">View</button>
             </div>
@@ -58,4 +72,10 @@ const Homepage = () => (
     </div>
 );
 
-export default Homepage;
+const mapStateToProps = state => ({
+    userCount: selectUserCountSlice(state),
+    isGettingUserCount: selectIsGettingUserCountSlice(state),
+    userCountError: selectUserCountError(state)
+})
+
+export default connect(mapStateToProps) (Homepage);

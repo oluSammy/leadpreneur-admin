@@ -16,12 +16,12 @@ const App = ({ setCurrentUser, currentUser }) => {
     const unSubscribeFromAuth = auth.onAuthStateChanged(user => {
       setCurrentUser(user);
     });
-
+    
     //cleanup function
     return () => {
       unSubscribeFromAuth(); 
     }
-  })
+  },[setCurrentUser])
 
   return(
     <div className="App">
@@ -34,7 +34,7 @@ const App = ({ setCurrentUser, currentUser }) => {
 };
 
 const mapDispatchToProps = dispatch => ({
-  setCurrentUser: user => dispatch(setUser(user))
+  setCurrentUser: user => dispatch(setUser(user)),
 });
 
 const mapStateToProps = state => ({

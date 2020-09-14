@@ -4,7 +4,10 @@ import './users-page.scss';
 import UserDataTable from '../../components/user-data-table/user-data-table.component';
 import SearchUser from '../../components/Search-User/Search-User.component';
 
-const UsersPage = () => (
+import { selectIsGettingUserCountSlice, selectUserCountError, selectUserCountSlice } from './../../Redux/Count/user-count.selectors';
+import { connect } from 'react-redux';
+
+const UsersPage = ({ userCount, isGettingUserCount, userCountError }) => (
     <div className="users">
         <div className="users__page-top">
             <h1 className="users__heading">Users</h1>
@@ -12,15 +15,27 @@ const UsersPage = () => (
         </div>
         <div className="users__count">
             <div className="users__count-box">
-                <h5 className="users__count-box--number users__heading--1">2234</h5>
+                <h5 className="users__count-box--number users__heading--1">
+                    {
+                        userCount && !isGettingUserCount ? userCount.registeredUsers : '.'
+                    }
+                </h5>
                 <p className="users__count-box--text">Registered Users</p>
             </div>
             <div className="users__count-box">
-                <h5 className="users__count-box--number users__heading--2">75</h5>
+                <h5 className="users__count-box--number users__heading--2">
+                    {
+                        userCount && !isGettingUserCount ? userCount.activatedUsers : '.'
+                    }
+                </h5>
                 <p className="users__count-box--text">Activated Users</p>
             </div>
             <div className="users__count-box">
-                <h5 className="users__count-box--number users__heading--3">24</h5>
+                <h5 className="users__count-box--number users__heading--3">
+                    {
+                        userCount && !isGettingUserCount ? userCount.registeredUsers - userCount.activatedUsers : '.'
+                    }
+                </h5>
                 <p className="users__count-box--text">Inactivated</p>
             </div>
         </div>
@@ -70,4 +85,10 @@ const UsersPage = () => (
     </div>
 );
 
-export default UsersPage;
+const mapStateToProps = state => ({
+    userCount: selectUserCountSlice(state),
+    isGettingUserCount: selectIsGettingUserCountSlice(state),
+    userCountError: selectUserCountError(state)
+})
+
+export default connect(mapStateToProps) (UsersPage);
