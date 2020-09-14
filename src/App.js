@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './App.scss';
 import Dashboard from './pages/dashboard/dashboard.component';
 import Login from './pages/login-page/login.component';
@@ -10,29 +10,27 @@ import { selectUserSlice } from './Redux/User/user.selectors';
 import { auth } from './firebase/firebase.utils';
 
 
-class App extends React.Component {
+const App = ({ setCurrentUser, currentUser }) => {
 
-  componentDidMount() {
-    const { setCurrentUser } = this.props;
-
-    auth.onAuthStateChanged(user => {
+  useEffect(() => {
+    const unSubscribeFromAuth = auth.onAuthStateChanged(user => {
       setCurrentUser(user);
-      console.log(user)
     });
-  }
 
-  render() {
-    const { currentUser } = this.props;
-    return(
-      <div className="App">
-        {
-          currentUser ? <Dashboard /> : <Login />
-        }
-        
-        {/*  */}
-      </div>
-    )
-  }
+    //cleanup function
+    return () => {
+      unSubscribeFromAuth(); 
+    }
+  })
+
+  return(
+    <div className="App">
+      {
+        currentUser ? <Dashboard /> : <Login />
+      }
+    </div>
+  )
+  
 };
 
 const mapDispatchToProps = dispatch => ({

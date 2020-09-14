@@ -35,7 +35,7 @@ const Navbar = ({ currentUser }) => (
               <RiUserShared2Line className="navbar__list--icon" />
               Agents
             </NavLink>          
-            <Link onClick={() => auth.signOut()} className="navbar__list--item navbar-link">
+            <Link to="" onClick={() => auth.signOut()} className="navbar__list--item navbar-link">
               <AiOutlineLogout className="navbar__list--icon" />
               Sign out
             </Link>
