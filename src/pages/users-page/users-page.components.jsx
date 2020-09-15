@@ -7,7 +7,7 @@ import SearchUser from '../../components/Search-User/Search-User.component';
 import { selectIsGettingUserCountSlice, selectUserCountError, selectUserCountSlice } from './../../Redux/Count/user-count.selectors';
 import { connect } from 'react-redux';
 
-const UsersPage = ({ userCount, isGettingUserCount, userCountError }) => (
+const UsersPage = ({ userCount, isGettingUserCount }) => (
     <div className="users">
         <div className="users__page-top">
             <h1 className="users__heading">Users</h1>
