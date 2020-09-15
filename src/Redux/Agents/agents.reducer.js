@@ -26,6 +26,23 @@ const agentReducer = (state=INIT_STATE, action) => {
                 ...state,
                 isAddingAgent: false
             }
+        case agentsActionTypes.GET_AGENTS_START: 
+            return {
+                ...state,
+                isGettingAgents: true
+            }
+        case agentsActionTypes.GET_AGENTS_SUCCESS:
+            return {
+                ...state,
+                isGettingAgents: false,
+                agents: action.payload
+            }
+        case agentsActionTypes.GET_AGENTS_FAILURE:
+            return {
+                ...state,
+                isGettingAgents: false,
+                getAgentsErrorMsg: action.payload
+            }
 
         default: return state
     }

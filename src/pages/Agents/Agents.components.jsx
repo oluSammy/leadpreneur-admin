@@ -1,12 +1,26 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './Agents.styles.scss';
 
 import { HiOutlineDocumentAdd } from 'react-icons/hi';
 import { FcCancel, FcCheckmark } from 'react-icons/fc';
 
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { asyncGetAgents } from '../../Redux/Agents/agents.actions';
+import { selectAgentsSlice } from '../../Redux/Agents/agents.selectors';
+import { selectIsGettingAgents } from './../../Redux/Agents/agents.selectors';
+import Loader from 'react-loader-spinner'
 
-const Agents = () => (
+const Agents = ({ agents, getAgents, isGettingAgents }) => {
+
+    useEffect(() => {
+        const fetchAgents = async () => {
+            await getAgents();
+        };
+        fetchAgents();
+    }, [getAgents]);
+
+    return (
     <div className="agents">
         <div className="agents__header">
             <h4 className="agents__heading">Agents</h4>
@@ -39,53 +53,41 @@ const Agents = () => (
                 <h4 className="agents__table-header--heading">Total Referrers</h4>
                 <h4 className="agents__table-header--heading">---</h4>
             </div>
-            <div className="agents__table-data">
-                <p className="agents__table-data--name">Olumorin Samuel</p>
-                <p className="agents__table-data--id">9489983jdhdg</p>
-                <p className="agents__table-data--All">676</p>
-                <p className="agents__table-data--referer">676</p>
-                <p className="agents__table-data--action"> <FcCancel /> <span>Disable</span> </p>
-            </div>
-            <div className="agents__table-data">
-                <p className="agents__table-data--name">Olumorin Samuel</p>
-                <p className="agents__table-data--id">9489983jdhdg</p>
-                <p className="agents__table-data--All">676</p>
-                <p className="agents__table-data--referer">676</p>
-                <p className="agents__table-data--action"> <FcCancel /> <span>Disable</span> </p>
-            </div>
-            <div className="agents__table-data">
-                <p className="agents__table-data--name">Olumorin Samuel</p>
-                <p className="agents__table-data--id">9489983jdhdg</p>
-                <p className="agents__table-data--All">676</p>
-                <p className="agents__table-data--referer">676</p>
-                <p className="agents__table-data--action"> <FcCheckmark /> <span>Disable</span> </p>
-            </div>
-            <div className="agents__table-data">
-                <p className="agents__table-data--name">Olumorin Samuel</p>
-                <p className="agents__table-data--id">9489983jdhdg</p>
-                <p className="agents__table-data--All">676</p>
-                <p className="agents__table-data--referer">676</p>
-                <p className="agents__table-data--action"> <FcCheckmark /> <span>Disable</span> </p>
-            </div>
-            <div className="agents__table-data">
-                <p className="agents__table-data--name">Olumorin Samuel</p>
-                <p className="agents__table-data--id">9489983jdhdg</p>
-                <p className="agents__table-data--All">676</p>
-                <p className="agents__table-data--referer">676</p>
-                <p className="agents__table-data--action"> <FcCheckmark /> <span>Disable</span> </p>
-            </div>
-            <div className="agents__table-data">
-                <p className="agents__table-data--name">Olumorin Samuel</p>
-                <p className="agents__table-data--id">9489983jdhdg</p>
-                <p className="agents__table-data--All">676</p>
-                <p className="agents__table-data--referer">676</p>
-                <p className="agents__table-data--action"> <FcCancel /> <span>Disable</span> </p>
-            </div>
+            {isGettingAgents && !agents &&
+                <Loader
+                    type="Puff"
+                    color="#00BFFF"
+                    height={100}
+                    width={100}
+                />
+            }
+            {agents && agents.map(agent =>
+                <div key={agent.id} className="agents__table-data">
+                    <p className="agents__table-data--name">{agent.data.name}</p>
+                    <p className="agents__table-data--id">{agent.id}</p>
+                    <p className="agents__table-data--All number">{agent.data.totalReferrers}</p>
+                    <p className="agents__table-data--referer number">{agent.data.totalReferrers}</p>
+                    {
+                        agent.isActivated ?
+                        <p className="agents__table-data--action"> <FcCheckmark /> <span>Activate</span> </p> :
+                        <p className="agents__table-data--action"> <FcCancel /> <span>Disable</span> </p>
+                    }
+                </div>
+            )}
         </div>
         <div className="align-center">
             <button className="agents__more">More</button>
         </div>
     </div>
-);
+)};
 
-export default Agents;
+const mapDispatchToProps = dispatch => ({
+    getAgents: () => dispatch(asyncGetAgents())
+});
+
+const mapStateToProps = state => ({
+    agents: selectAgentsSlice(state),
+    isGettingAgents: selectIsGettingAgents(state)
+});
+
+export default connect(mapStateToProps, mapDispatchToProps) (Agents);

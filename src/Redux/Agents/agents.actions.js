@@ -15,6 +15,20 @@ const addAgentFailure = (errorMsg) => ({
     payload: errorMsg
 });
 
+const getAgentsStart = () => ({
+    type: agentsActionTypes.GET_AGENTS_START
+});
+
+const getAgentsSuccess = agents => ({
+    type: agentsActionTypes.GET_AGENTS_SUCCESS,
+    payload: agents
+});
+
+const getAgentsFailure = errorMsg => ({
+    type: agentsActionTypes.GET_AGENTS_FAILURE,
+    payload: errorMsg
+})
+
 export const asyncAddAgent = (name) => {
     return async dispatch => {
         try {
@@ -43,6 +57,25 @@ export const asyncAddAgent = (name) => {
                 text: 'Something went wrong!',
                 footer: 'Try Again'
             });
+        }
+    }
+};
+
+export const asyncGetAgents = () => {
+    return async dispatch => {
+        try {
+            let agents = [];
+
+            dispatch(getAgentsStart());
+            const agentsRef = firestore.collection('agents');
+            const agentsDocs = await agentsRef.get();
+            agentsDocs.docs.forEach(doc => {
+                agents.push({id: doc.id, data: doc.data()})
+            });
+            dispatch(getAgentsSuccess(agents))
+
+        } catch (error) {
+            dispatch(getAgentsFailure(error));
         }
     }
 }
