@@ -21,6 +21,7 @@ firebase.firestore().enablePersistence();
 
 export const auth = firebase.auth();
 export const firestore = firebase.firestore();
+export const FieldValue = firebase.firestore.FieldValue.serverTimestamp();
 
 
 export default firebase;

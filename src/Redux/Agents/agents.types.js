@@ -1,0 +1,5 @@
+export const agentsActionTypes = {
+    ADD_AGENT_START: 'ADD_AGENT_START',
+    ADD_AGENT_SUCCESS: 'ADD_AGENT_SUCCESS',
+    ADD_AGENT_FAILURE: 'ADD_AGENT_FAILURE'
+}
