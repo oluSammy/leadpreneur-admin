@@ -9,7 +9,6 @@ import { setUser } from './Redux/User/user.actions';
 import { selectUserSlice } from './Redux/User/user.selectors';
 import { auth } from './firebase/firebase.utils';
 
-
 const App = ({ setCurrentUser, currentUser }) => {
 
   useEffect(() => {

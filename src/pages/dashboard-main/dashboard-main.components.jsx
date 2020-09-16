@@ -32,7 +32,7 @@ const DashboardMain = () => (
             <Route exact path="/new-country" component={AddCountry} />
             <Route exact path="/country/nigeria" component={Country} />
             <Route exact path="/search-user" component={UserSearch} />
-            <Route exact path="/search-agent" component={AgentsSearch} />
+            <Route exact path="/agent/:id" component={AgentsSearch} />
         </Switch>
     </div>
 )

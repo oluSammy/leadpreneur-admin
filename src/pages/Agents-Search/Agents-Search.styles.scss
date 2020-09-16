@@ -2,9 +2,38 @@
 
 .agents-search {
     margin-top: 3rem;
+    min-height: 100vh;
+
+    @media only screen and (max-width: $bp-large) {
+        margin-left: 5rem;
+    }
+
+    &__list {
+        list-style-type: none;
+        display: flex;
+        align-items: baseline;
+        margin-bottom: 1.2rem;
+    }
+
+    &__title {
+        font-size: 1.6rem;
+        color: $text-color;
+        margin-right: 1.3rem;
+    }
+
+    &__tag {
+        font-size: 1.2rem;
+    }
+
+    &__action {
+        text-decoration: underline;
+        color: $color-primary;
+        margin-left: 2rem;
+    }
 
     &__heading {
-    
+        margin-bottom: 2rem;
+
         @media only screen and (max-width: $bp-large) {
             margin-left: 4rem;
         }

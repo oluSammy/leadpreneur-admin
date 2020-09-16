@@ -73,7 +73,7 @@
         & select {
             border: .6px solid $color-grey-dark-2;
             border-radius: 1.2rem;
-            width: 12rem;
+            width: 15rem;
             padding: .2rem .4rem;
             box-shadow: 4px 4px 11px -6px rgba(0,0,0,0.75);
             margin-right: 4rem;
@@ -106,7 +106,7 @@
         }
 
     }
-    
+
     &__table-header {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
@@ -128,8 +128,9 @@
     &__table-data {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-        
         padding: .4rem .7rem;
+        cursor: pointer;
+        text-decoration: none;
 
         @media only screen and (max-width: $bp-phone) {
             display: block;
@@ -146,6 +147,10 @@
         &--action {
             text-decoration: underline;
             cursor: pointer;
+        }
+
+        &--name {
+            text-transform: capitalize;
         }
     }
 
