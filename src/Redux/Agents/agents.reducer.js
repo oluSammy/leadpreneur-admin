@@ -5,7 +5,10 @@ const INIT_STATE = {
     addAgentErrorMsg: '',
     agents: null,
     isGettingAgents: false,
-    getAgentsErrorMsg: ''
+    getAgentsErrorMsg: '',
+    agent: null,
+    isGettingAgent: false,
+    getAgentErrorMsg: ''
 }
 
 const agentReducer = (state=INIT_STATE, action) => {
@@ -26,7 +29,7 @@ const agentReducer = (state=INIT_STATE, action) => {
                 ...state,
                 isAddingAgent: false
             }
-        case agentsActionTypes.GET_AGENTS_START: 
+        case agentsActionTypes.GET_AGENTS_START:
             return {
                 ...state,
                 isGettingAgents: true
@@ -42,6 +45,23 @@ const agentReducer = (state=INIT_STATE, action) => {
                 ...state,
                 isGettingAgents: false,
                 getAgentsErrorMsg: action.payload
+            }
+        case agentsActionTypes.GET_AGENT_START:
+            return {
+                ...state,
+                isGettingAgent:true
+            }
+        case agentsActionTypes.GET_AGENT_SUCCESS:
+            return {
+                ...state,
+                isGettingAgent: false,
+                agent: action.payload
+            }
+        case agentsActionTypes.GET_AGENT_FAILURE:
+            return {
+                ...state,
+                isGettingAgent: false,
+                getAgentErrorMsg: action.payload
             }
 
         default: return state

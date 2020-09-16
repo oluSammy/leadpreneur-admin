@@ -29,6 +29,20 @@ const getAgentsFailure = errorMsg => ({
     payload: errorMsg
 })
 
+const getAgentStart = () => ({
+    type: agentsActionTypes.GET_AGENT_START
+});
+
+const getAgentSuccess = agent => ({
+    type: agentsActionTypes.GET_AGENT_SUCCESS,
+    payload: agent
+});
+
+const getAgentFailure = errorMsg => ({
+    type: agentsActionTypes.GET_AGENT_FAILURE,
+    payload: errorMsg
+})
+
 export const asyncAddAgent = (name) => {
     return async dispatch => {
         try {
@@ -79,3 +93,19 @@ export const asyncGetAgents = () => {
         }
     }
 }
+
+export const asyncGetAgent = (agentId) => {
+    return async dispatch => {
+        try {
+            dispatch(getAgentStart())
+
+            const agentRef = firestore.collection('agents').doc(`${agentId}`);
+            const agentDoc = await agentRef.get();
+            dispatch(getAgentSuccess(agentDoc.data()));
+
+        } catch (error) {
+            dispatch(getAgentFailure(error));
+        }
+    }
+}
+

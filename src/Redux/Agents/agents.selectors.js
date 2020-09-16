@@ -16,3 +16,13 @@ export const selectIsGettingAgents = createSelector(
     [selectAgents],
     agents => agents.isGettingAgents
 );
+
+export const selectIsGettingAgent = createSelector(
+    [selectAgents],
+    agents => agents.isGettingAgent
+);
+
+export const selectAgent = createSelector(
+    [selectAgents],
+    agents => agents.agent
+);
