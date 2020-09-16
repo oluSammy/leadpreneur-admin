@@ -8,15 +8,12 @@ import { connect } from 'react-redux';
 import { asyncGetUserCount } from './../../Redux/Count/user-count.actions';
 
 const Dashboard = ({ getUserCount }) => {
-    
     useEffect(() => {
         const getUsersAndAgentsCount = async () => {
             await getUserCount();
         }
-        
         getUsersAndAgentsCount();
     })
-    
     return (
     <div className="dashboard">
         <div className="dashboard__nav">
@@ -26,9 +23,9 @@ const Dashboard = ({ getUserCount }) => {
             <Sidebar />
         </div>
         <div className="dashboard__main">
-            <DashboardMain />            
+            <DashboardMain />
         </div>
-    </div>    
+    </div>
 )};
 
 const mapDispatchToProps = dispatch => ({

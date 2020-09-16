@@ -1,12 +1,13 @@
 import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import './Agents-Search.styles.scss';
+import './AgentPage.styles.scss'
 import { connect } from 'react-redux';
 import { asyncGetAgent } from '../../Redux/Agents/agents.actions';
 import { selectAgent, selectIsGettingAgent } from '../../Redux/Agents/agents.selectors';
+import Loader from 'react-loader-spinner';
 
 
-const AgentsSearch = ({ agent, getAgent, isGettingAgent }) => {
+const AgentPage = ({ agent, getAgent, isGettingAgent }) => {
     let { id } = useParams();
 
     useEffect(() => {
@@ -17,7 +18,15 @@ const AgentsSearch = ({ agent, getAgent, isGettingAgent }) => {
     }, [getAgent, id])
     return (
         <div className="agents-search">
-            <h1 className="agents-search__heading">Search Agent {id}</h1>
+            <h1 className="agents-search__heading">Agent</h1>
+            {isGettingAgent &&
+                <Loader
+                    type="ThreeDots"
+                    color="#0c0432"
+                    height={60}
+                    width={60}
+                />
+            }
             {!isGettingAgent && agent &&
                 <div>
                     <li className="agents-search__list">
@@ -61,4 +70,4 @@ const mapDispatchToProps = dispatch => ({
     getAgent: (id) => dispatch(asyncGetAgent(id))
 });
 
-export default connect(mapStateToProps, mapDispatchToProps) (AgentsSearch);
+export default connect(mapStateToProps, mapDispatchToProps) (AgentPage);
