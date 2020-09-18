@@ -10,7 +10,7 @@ import Loader from 'react-loader-spinner';
 
 const AddAgent = ({ addAgent, isAddingAgents }) => {
     const [name, setName] = useState("");
-    
+
     const handleSubmit = async e => {
         e.preventDefault();
         await addAgent(name);
@@ -22,24 +22,30 @@ const AddAgent = ({ addAgent, isAddingAgents }) => {
             <h1 className="add-agent__heading">Add New Agent</h1>
             <form onSubmit={handleSubmit} className="add-agent__form">
                 <label htmlFor="agent-input" className="add-agent__label">Add Agent: </label>
-                <input 
+                <input
                     onChange={(e) => setName(e.target.value)}
-                    type="text" name="agent-input" id="agent-input" 
+                    type="text" name="agent-input" id="agent-input" required
                     className="add-agent__input" placeholder="Name" value={name}
                 />
                 <div style={{display: 'flex', alignItems: 'center'}}>
-                    <button type="submit" className="add-agent__submit"> 
-                        <AiOutlineUserAdd className="add-agent__icon"/> 
-                        <span>Add Agent</span> 
-                    </button>
-                    {isAddingAgents && 
+                    {isAddingAgents ?
+                        <button className="add-agent__submit" disabled style={{color: '#0A0A56'}}>
+                            <AiOutlineUserAdd className="add-agent__icon"/>
+                            <span style={{color: '#ffffff'}}>Adding Agent</span>
+                        </button> :
+                        <button type="submit" className="add-agent__submit">
+                            <AiOutlineUserAdd className="add-agent__icon"/>
+                            <span>Add Agent</span>
+                        </button>
+                    }
+                    {isAddingAgents &&
                         <Loader
                             style={{marginTop: '3rem', marginLeft: '2rem'}}
                             type="Circles"
                             color="#0A0A56"
                             height={20}
                             width={20}
-                        />                    
+                        />
                     }
                 </div>
             </form>

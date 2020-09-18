@@ -4,16 +4,33 @@ import './Agents.styles.scss';
 import { HiOutlineDocumentAdd } from 'react-icons/hi';
 import { FcCancel, FcCheckmark } from 'react-icons/fc';
 
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { asyncGetAgents } from '../../Redux/Agents/agents.actions';
-import { selectAgentsSlice } from '../../Redux/Agents/agents.selectors';
-import { selectIsGettingAgents } from './../../Redux/Agents/agents.selectors';
+import { asyncGetAgents, asyncSearchAgent } from '../../Redux/Agents/agents.actions';
+import { selectAgentsSlice, selectSearchResult } from '../../Redux/Agents/agents.selectors';
+import { selectIsGettingAgents, selectIsSearching } from './../../Redux/Agents/agents.selectors';
 import Loader from 'react-loader-spinner'
 import { getMonthlyReferrer } from './../../utilityFunctions/getMonthlyReferrer';
+import Swal from 'sweetalert2';
 
-const Agents = ({ agents, getAgents, isGettingAgents }) => {
+const Agents = ({ agents, getAgents, isGettingAgents, searchAgent, searchResult, isSearchingAgent }) => {
     const [referrer, setReferrer] = useState("all");
+    const [agentName, setAgentName] = useState("");
+    let history = useHistory();
+
+    const handleSubmit = async e => {
+        e.preventDefault();
+        await searchAgent(agentName);
+        if(searchResult.length > 0){
+            history.push(`/search-agent/${agentName}`);
+        } else {
+            Swal.fire(
+                'The Result?',
+                `${agentName} did not match any agent name`,
+                'question'
+            )
+        }
+    }
 
     useEffect(() => {
         const fetchAgents = async () => {
@@ -26,9 +43,16 @@ const Agents = ({ agents, getAgents, isGettingAgents }) => {
     <div className="agents">
         <div className="agents__header">
             <h4 className="agents__heading">Agents</h4>
-            <form className="agents__form">
-                <input type="search" name="agent" id="agent" placeholder="Search Agents by name" className="agents__search"/>
-                <button type="submit" className="agents__submit">Search</button>
+            <form onSubmit={handleSubmit} className="agents__form">
+                <input
+                    onChange={ e=> setAgentName(e.target.value)} value={agentName}
+                    type="search" name="agent" id="agent" required
+                    placeholder="Search Agents by name" className="agents__search"
+                />
+                {isSearchingAgent ?
+                    <button disabled  className="agents__submit">Searching...</button> :
+                    <button type="submit" className="agents__submit">Search</button>
+                }
             </form>
         </div>
         <div className="agents__filter">
@@ -41,6 +65,7 @@ const Agents = ({ agents, getAgents, isGettingAgents }) => {
                     <option value="all">All</option>
                     <option value="august_2020">August 2020</option>
                     <option value="september_2020">september 2020</option>
+                    <option value="october_2020">october 2020</option>
                 </select>
             </div>
             <Link to="/new-agent" className="agents__new-btn"> <HiOutlineDocumentAdd /> New Agent</Link>
@@ -54,19 +79,22 @@ const Agents = ({ agents, getAgents, isGettingAgents }) => {
                 <h4 className="agents__table-header--heading">---</h4>
             </div>
             {isGettingAgents && !agents &&
-                <Loader
-                    type="Puff"
-                    color="#00BFFF"
-                    height={100}
-                    width={100}
-                />
+                <div className="agents__loader">
+                    <Loader
+                        type="ThreeDots"
+                        color="#2717d5"
+                        height={70}
+                        width={70}
+                    />
+                </div>
             }
             {agents && agents.map(agent =>
                 <Link to={`/agent/${agent.id}`} key={agent.id} className="agents__table-data">
                     <p className="agents__table-data--name">{agent.data.name}</p>
                     <p className="agents__table-data--id">{agent.id}</p>
                     <p className="agents__table-data--All number">
-                        {referrer === 'all' ? agent.data.totalReferrers : getMonthlyReferrer(agent.data.monthlyReferrer, referrer) }
+                        {referrer === 'all' ? agent.data.totalReferrers :
+                            getMonthlyReferrer(agent.data.monthlyReferrer, referrer) }
                     </p>
                     <p className="agents__table-data--referer number">{agent.data.totalReferrers}</p>
                     {
@@ -84,12 +112,15 @@ const Agents = ({ agents, getAgents, isGettingAgents }) => {
 )};
 
 const mapDispatchToProps = dispatch => ({
-    getAgents: () => dispatch(asyncGetAgents())
+    getAgents: () => dispatch(asyncGetAgents()),
+    searchAgent: searchString => dispatch(asyncSearchAgent(searchString))
 });
 
 const mapStateToProps = state => ({
     agents: selectAgentsSlice(state),
-    isGettingAgents: selectIsGettingAgents(state)
+    isGettingAgents: selectIsGettingAgents(state),
+    searchResult: selectSearchResult(state),
+    isSearchingAgent: selectIsSearching(state)
 });
 
 export default connect(mapStateToProps, mapDispatchToProps) (Agents);

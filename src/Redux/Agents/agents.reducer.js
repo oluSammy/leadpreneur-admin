@@ -3,12 +3,15 @@ import { agentsActionTypes } from './agents.types';
 const INIT_STATE = {
     isAddingAgent: false,
     addAgentErrorMsg: '',
-    agents: null,
+    agents: [],
     isGettingAgents: false,
     getAgentsErrorMsg: '',
     agent: null,
     isGettingAgent: false,
-    getAgentErrorMsg: ''
+    getAgentErrorMsg: '',
+    isSearchingAgent: false,
+    searchResult: null,
+    searchError: ''
 }
 
 const agentReducer = (state=INIT_STATE, action) => {
@@ -49,7 +52,7 @@ const agentReducer = (state=INIT_STATE, action) => {
         case agentsActionTypes.GET_AGENT_START:
             return {
                 ...state,
-                isGettingAgent:true
+                isGettingAgent: true
             }
         case agentsActionTypes.GET_AGENT_SUCCESS:
             return {
@@ -62,6 +65,23 @@ const agentReducer = (state=INIT_STATE, action) => {
                 ...state,
                 isGettingAgent: false,
                 getAgentErrorMsg: action.payload
+            }
+        case agentsActionTypes.SEARCH_AGENT_START:
+            return {
+                ...state,
+                isSearchingAgent: true,
+            }
+        case agentsActionTypes.SEARCH_AGENT_SUCCESS:
+            return {
+                ...state,
+                isSearchingAgent: false,
+                searchResult: action.payload
+            }
+        case agentsActionTypes.SEARCH_AGENT_FAILURE:
+            return {
+                ...state,
+                isSearchingAgent: false,
+                searchError: action.payload
             }
 
         default: return state

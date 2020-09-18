@@ -1,6 +1,7 @@
 import { firestore, FieldValue } from '../../firebase/firebase.utils';
 import { agentsActionTypes } from './agents.types';
 import Swal from 'sweetalert2';
+import firebase from 'firebase/app';
 
 const addAgentStart = () => ({
     type: agentsActionTypes.ADD_AGENT_START
@@ -41,6 +42,20 @@ const getAgentSuccess = agent => ({
 const getAgentFailure = errorMsg => ({
     type: agentsActionTypes.GET_AGENT_FAILURE,
     payload: errorMsg
+});
+
+const searchAgentStart = () => ({
+    type: agentsActionTypes.SEARCH_AGENT_START
+});
+
+const searchAgentSuccess = agent => ({
+    type: agentsActionTypes.SEARCH_AGENT_SUCCESS,
+    payload: agent
+});
+
+const searchAgentFailure = errorMsg => ({
+    type: agentsActionTypes.SEARCH_AGENT_FAILURE,
+    payload: errorMsg
 })
 
 export const asyncAddAgent = (name) => {
@@ -49,12 +64,15 @@ export const asyncAddAgent = (name) => {
             dispatch(addAgentStart());
 
             const agentRef = firestore.collection('agents');
+            const updateAgentRef = firestore.collection('users_agents_count').doc('Kd3xKFGqDNZjnOolRxN2');
             await agentRef.add({
-                name,
+                name: name.toLowerCase(),
                 isActivated: true,
                 totalReferrers: 0,
-                dateCreated: FieldValue
+                dateCreated: FieldValue,
+                monthlyReferrer: []
             });
+            await updateAgentRef.update({agents: firebase.firestore.FieldValue.increment(1)});
 
             dispatch(addAgentSuccess());
             Swal.fire(
@@ -108,4 +126,32 @@ export const asyncGetAgent = (agentId) => {
         }
     }
 }
+
+export const asyncSearchAgent = (searchStr) => {
+    return async dispatch => {
+
+        try {
+            dispatch(searchAgentStart());
+            let searchResult = [];
+            const searchRef = firestore.collection('agents');
+            const lowerSearchStr = searchStr.toLowerCase();
+            const searchResultDoc = await searchRef.where('name', '==', lowerSearchStr).get();
+            searchResultDoc.docs.forEach(doc => {
+                searchResult.push({id: doc.id, data: doc.data()});
+            });
+            dispatch(searchAgentSuccess(searchResult));
+
+        } catch (error) {
+            dispatch(searchAgentFailure(error))
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Something went wrong!',
+                footer: 'Try Again'
+            });
+        }
+    }
+}
+
+
 

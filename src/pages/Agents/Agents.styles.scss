@@ -26,6 +26,9 @@
         @media only screen and (max-width: $bp-tab-2) {
             width: 65%;
         }
+        @media only screen and (max-width: $bp-phone) {
+            width: 75%;
+        }
     }
 
     &__search {
@@ -41,6 +44,10 @@
 
         @media only screen and (max-width: $bp-large-2) {
             width: 90%;
+        }
+
+        @media only screen and (max-width: $bp-phone) {
+            width: 100%;
         }
     }
 
@@ -59,6 +66,10 @@
 
         @media only screen and (max-width: $bp-large-2) {
             right: 2rem;
+        }
+
+        @media only screen and (max-width: $bp-phone) {
+            right: .2rem;
         }
 
         &:hover {
@@ -163,6 +174,15 @@
         cursor: pointer;
         border-radius: 1.2rem;
         box-shadow: 1px 2px 2px 0px rgba(0,0,0,0.75);
+    }
+
+    &__loader {
+        margin-left: 45%;
+        margin-top: 5rem;
+
+        @media only screen and (max-width: $bp-phone) {
+            margin-left: 100%;
+        }
     }
 }
 

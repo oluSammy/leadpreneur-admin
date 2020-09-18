@@ -55,7 +55,6 @@ const AgentPage = ({ agent, getAgent, isGettingAgent }) => {
                             </li>)
                     })}
                 </div>
-
             }
         </div>
     )

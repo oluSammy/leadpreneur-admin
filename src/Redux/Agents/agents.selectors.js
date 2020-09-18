@@ -26,3 +26,13 @@ export const selectAgent = createSelector(
     [selectAgents],
     agents => agents.agent
 );
+
+export const selectSearchResult = createSelector(
+    [selectAgents],
+    agents => agents.searchResult
+);
+
+export const selectIsSearching = createSelector(
+    [selectAgents],
+    agents => agents.isSearchingAgent
+);

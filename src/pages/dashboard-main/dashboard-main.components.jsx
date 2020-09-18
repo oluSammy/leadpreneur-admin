@@ -15,6 +15,7 @@ import AddCountry from '../Add-Country/Add-Country.components';
 import Country from '../Country/Country.components';
 import UserSearch from './../Search-User/User-Search.components';
 import AgentPage from '../AgentPage/AgentPage.component';
+import SearchAgent from '../search-agent/SearchAgent.component';
 
 
 const DashboardMain = () => (
@@ -33,6 +34,7 @@ const DashboardMain = () => (
             <Route exact path="/country/nigeria" component={Country} />
             <Route exact path="/search-user" component={UserSearch} />
             <Route exact path="/agent/:id" component={AgentPage} />
+            <Route exact path="/search-agent/:id" component={SearchAgent} />
         </Switch>
     </div>
 )
