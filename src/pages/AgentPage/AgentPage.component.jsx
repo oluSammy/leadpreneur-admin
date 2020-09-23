@@ -1,13 +1,14 @@
 import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import './AgentPage.styles.scss'
+import './AgentPage.styles.scss';
 import { connect } from 'react-redux';
-import { asyncGetAgent } from '../../Redux/Agents/agents.actions';
+import { asyncDeactivateAgent, asyncGetAgent } from '../../Redux/Agents/agents.actions';
 import { selectAgent, selectIsGettingAgent } from '../../Redux/Agents/agents.selectors';
 import Loader from 'react-loader-spinner';
+import { asyncActivateAgent } from './../../Redux/Agents/agents.actions';
 
 
-const AgentPage = ({ agent, getAgent, isGettingAgent }) => {
+const AgentPage = ({ agent, getAgent, isGettingAgent, activateAgent, deactivateAgent }) => {
     let { id } = useParams();
 
     useEffect(() => {
@@ -16,6 +17,14 @@ const AgentPage = ({ agent, getAgent, isGettingAgent }) => {
         }
         getCurrentAgent();
     }, [getAgent, id])
+
+    const updateAgent = () => {
+        if(!agent.isActivated) {
+            activateAgent(id);
+        } else {
+            deactivateAgent(id);
+        }
+    }
     return (
         <div className="agents-search">
             <h1 className="agents-search__heading">Agent</h1>
@@ -35,18 +44,18 @@ const AgentPage = ({ agent, getAgent, isGettingAgent }) => {
                     </li>
                     <li className="agents-search__list">
                         <h6 className="agents-search__title">Status:</h6>
-                        <p className="agents-search__tag">
-                            {agent.isActivated ? 'Active' : 'Inactive' }
-                            <span className="agents-search__action">
-                            {agent.isActivated ? 'Deactivate' : 'Activate' }
-                            </span>
-                        </p>
+                        <div className="agents-search__status">
+                            <p className="agents-search__status--status">{agent.isActivated ? 'Active' : 'Inactive' }</p>
+                            <p onClick={updateAgent} className="agents-search__status--action" >
+                                {agent.isActivated ? 'Deactivate' : 'Activate' }
+                            </p>
+                        </div>
                     </li>
                     <li className="agents-search__list">
                         <h6 className="agents-search__title">Total Referrers:</h6>
                         <p className="agents-search__tag number">{agent.totalReferrers}</p>
                     </li>
-                    {agent.monthlyReferrer.map(obj => {
+                    {agent.monthlyReferrer && agent.monthlyReferrer.map(obj => {
                         const [key] = Object.entries(obj);
                         return(
                             <li className="agents-search__list">
@@ -66,7 +75,9 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-    getAgent: (id) => dispatch(asyncGetAgent(id))
+    getAgent: (id) => dispatch(asyncGetAgent(id)),
+    activateAgent: (id) => dispatch(asyncActivateAgent(id)),
+    deactivateAgent: id => dispatch(asyncDeactivateAgent(id))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps) (AgentPage);

@@ -50,7 +50,7 @@ const Login = () => {
                     title: 'Oops...',
                     text: 'Something went wrong!',
                     footer: 'Try Again'
-                  })
+                })
             }
         }
     }

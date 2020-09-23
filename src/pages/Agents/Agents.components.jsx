@@ -8,10 +8,9 @@ import { Link, useHistory } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { asyncGetAgents, asyncSearchAgent } from '../../Redux/Agents/agents.actions';
 import { selectAgentsSlice, selectSearchResult } from '../../Redux/Agents/agents.selectors';
-import { selectIsGettingAgents, selectIsSearching } from './../../Redux/Agents/agents.selectors';
+import { selectIsGettingAgents, selectIsSearching } from '../../Redux/Agents/agents.selectors';
 import Loader from 'react-loader-spinner'
-import { getMonthlyReferrer } from './../../utilityFunctions/getMonthlyReferrer';
-import Swal from 'sweetalert2';
+import { getMonthlyReferrer } from '../../utilityFunctions/getMonthlyReferrer';
 
 const Agents = ({ agents, getAgents, isGettingAgents, searchAgent, searchResult, isSearchingAgent }) => {
     const [referrer, setReferrer] = useState("all");
@@ -21,15 +20,8 @@ const Agents = ({ agents, getAgents, isGettingAgents, searchAgent, searchResult,
     const handleSubmit = async e => {
         e.preventDefault();
         await searchAgent(agentName);
-        if(searchResult.length > 0){
-            history.push(`/search-agent/${agentName}`);
-        } else {
-            Swal.fire(
-                'The Result?',
-                `${agentName} did not match any agent name`,
-                'question'
-            )
-        }
+        console.log(searchResult.length);
+        history.push(`/search-agent/${agentName}`);
     }
 
     useEffect(() => {
@@ -98,15 +90,16 @@ const Agents = ({ agents, getAgents, isGettingAgents, searchAgent, searchResult,
                     </p>
                     <p className="agents__table-data--referer number">{agent.data.totalReferrers}</p>
                     {
-                        agent.isActivated ?
-                        <p className="agents__table-data--action"> <FcCheckmark /> <span>Activate</span> </p> :
-                        <p className="agents__table-data--action"> <FcCancel /> <span>Disable</span> </p>
+                        agent.data.isActivated ?
+                            <p className="agents__table-data--action"> <FcCancel /> <span>Disable</span> </p>
+                        :
+                            <p className="agents__table-data--action"> <FcCheckmark /> <span>Activate</span> </p>
                     }
                 </Link>
             )}
         </div>
         <div className="align-center">
-            <button className="agents__more">More</button>
+            {/* <button className="agents__more">More</button> */}
         </div>
     </div>
 )};
@@ -120,7 +113,7 @@ const mapStateToProps = state => ({
     agents: selectAgentsSlice(state),
     isGettingAgents: selectIsGettingAgents(state),
     searchResult: selectSearchResult(state),
-    isSearchingAgent: selectIsSearching(state)
+    isSearchingAgent: selectIsSearching(state),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps) (Agents);

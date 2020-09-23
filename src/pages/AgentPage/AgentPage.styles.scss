@@ -43,4 +43,20 @@
     &__month {
         text-transform: capitalize;
     }
+
+    &__status {
+        display: flex;
+        align-items: center;
+
+        &--status {
+            font-size: 1.7rem ;
+        }
+
+        &--action {
+            cursor: pointer;
+            margin-left: 2rem;
+            font-size: 1.3rem;
+            text-decoration: underline;
+        }
+    }
 }

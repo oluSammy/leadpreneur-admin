@@ -136,10 +136,14 @@ export const asyncSearchAgent = (searchStr) => {
             const searchRef = firestore.collection('agents');
             const lowerSearchStr = searchStr.toLowerCase();
             const searchResultDoc = await searchRef.where('name', '==', lowerSearchStr).get();
-            searchResultDoc.docs.forEach(doc => {
-                searchResult.push({id: doc.id, data: doc.data()});
-            });
-            dispatch(searchAgentSuccess(searchResult));
+            if(searchResultDoc.empty) {
+                dispatch(searchAgentFailure('empty search'))
+            } else {
+                searchResultDoc.docs.forEach(doc => {
+                    searchResult.push({id: doc.id, data: doc.data()});
+                });
+                dispatch(searchAgentSuccess(searchResult));
+            }
 
         } catch (error) {
             dispatch(searchAgentFailure(error))
@@ -149,6 +153,80 @@ export const asyncSearchAgent = (searchStr) => {
                 text: 'Something went wrong!',
                 footer: 'Try Again'
             });
+        }
+    }
+}
+
+const activateAgentStart = () => ({
+    type: agentsActionTypes.ACTIVATE_AGENT_START
+});
+
+const activateAgentSuccess = () => ({
+    type: agentsActionTypes.ACTIVATE_AGENT_SUCCESS
+});
+
+const activateAgentFailure = errorMsg => ({
+    type: agentsActionTypes.ADD_AGENT_FAILURE,
+    payload: errorMsg
+})
+
+export const asyncActivateAgent = (id) => {
+    return async dispatch => {
+        try {
+            dispatch(activateAgentStart())
+            const agentRef = firestore.collection('agents').doc(`${id}`);
+            await agentRef.update({isActivated: true});
+            dispatch(activateAgentSuccess());
+            Swal.fire(
+                'Done',
+                'Agent Activated!',
+                'success'
+            );
+        } catch (error) {
+            console.log(error);
+            dispatch(activateAgentFailure());
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Something went wrong!'
+            });
+        }
+    }
+}
+
+const deactivateAgentStart = () => ({
+    type: agentsActionTypes.DEACTIVATE_AGENT_START
+});
+
+const deactivateAgentSuccess = () => ({
+    type: agentsActionTypes.DEACTIVATE_AGENT_SUCCESS
+})
+
+const deactivateAgentFailure = errorMsg => ({
+    type: agentsActionTypes.DEACTIVATE_AGENT_FAILURE,
+    payload: errorMsg
+});
+
+export const asyncDeactivateAgent = (id) => {
+    return async dispatch => {
+        try {
+            dispatch(deactivateAgentStart())
+            const agentRef = firestore.collection('agents').doc(`${id}`);
+            await agentRef.update({isActivated: false});
+            dispatch(deactivateAgentSuccess());
+            Swal.fire(
+                'Done',
+                'Agent Deactivated!',
+                'success'
+            );
+        } catch (error) {
+            console.log(error);
+            dispatch(deactivateAgentFailure());
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Something went wrong!',
+            })
         }
     }
 }

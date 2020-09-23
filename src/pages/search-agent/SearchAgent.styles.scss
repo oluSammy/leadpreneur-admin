@@ -1,3 +1,7 @@
 .search-agent {
     min-height: 80vh;
+
+    &__error {
+        margin: 3rem;
+    }
 }

@@ -11,8 +11,8 @@ const userReducer = (state = INIT_STATE, action) => {
                 ...state,
                 currentUser: action.payload
             }
-            default:
-                return state
+        default:
+            return state
     }
 }
 

@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 import { selectSearchResult } from '../../Redux/Agents/agents.selectors';
 
 const SearchAgent = ({ searchResult }) => (
+    searchResult.length > 0 ?
     <div className="search-agent">
         <h1 className="agents-search__heading">Agent</h1>
         <div className="agents__table">
@@ -33,6 +34,9 @@ const SearchAgent = ({ searchResult }) => (
         <div className="align-center">
             <button className="agents__more">More</button>
         </div>
+    </div> :
+    <div className="search-agent">
+        <h1 className="search-agent__error">No Agent matched your search</h1>
     </div>
 );
 

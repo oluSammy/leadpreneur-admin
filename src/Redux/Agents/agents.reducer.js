@@ -6,12 +6,16 @@ const INIT_STATE = {
     agents: [],
     isGettingAgents: false,
     getAgentsErrorMsg: '',
-    agent: null,
+    agent: [],
     isGettingAgent: false,
     getAgentErrorMsg: '',
     isSearchingAgent: false,
-    searchResult: null,
-    searchError: ''
+    searchResult: [],
+    searchError: '',
+    isActivatingAgent: false,
+    isDeactivatingAgent: false,
+    activateAgentErrMsg: '',
+    deactivateAgentErrMsg: ''
 }
 
 const agentReducer = (state=INIT_STATE, action) => {
@@ -69,6 +73,8 @@ const agentReducer = (state=INIT_STATE, action) => {
         case agentsActionTypes.SEARCH_AGENT_START:
             return {
                 ...state,
+                searchResult: [],
+                searchError: '',
                 isSearchingAgent: true,
             }
         case agentsActionTypes.SEARCH_AGENT_SUCCESS:
@@ -82,6 +88,38 @@ const agentReducer = (state=INIT_STATE, action) => {
                 ...state,
                 isSearchingAgent: false,
                 searchError: action.payload
+            }
+        case agentsActionTypes.ACTIVATE_AGENT_START:
+            return {
+                ...state,
+                isActivatingAgent: true
+            }
+        case agentsActionTypes.ACTIVATE_AGENT_SUCCESS:
+            return {
+                ...state,
+                isActivatingAgent: false
+            }
+        case agentsActionTypes.ACTIVATE_AGENT_FAILURE:
+            return {
+                ...state,
+                isActivatingAgent: false,
+                activateAgentErrMsg: action.payload
+            }
+        case agentsActionTypes.DEACTIVATE_AGENT_START:
+            return {
+                ...state,
+                isDeactivatingAgent: true
+            }
+        case agentsActionTypes.DEACTIVATE_AGENT_SUCCESS:
+            return {
+                ...state,
+                isDeactivatingAgent: false
+            }
+        case agentsActionTypes.DEACTIVATE_AGENT_FAILURE:
+            return {
+                ...state,
+                isDeactivatingAgent: false,
+                deactivateAgentErrMsg: action.payload
             }
 
         default: return state

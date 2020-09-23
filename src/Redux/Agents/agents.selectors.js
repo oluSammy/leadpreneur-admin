@@ -36,3 +36,8 @@ export const selectIsSearching = createSelector(
     [selectAgents],
     agents => agents.isSearchingAgent
 );
+
+export const selectErrMsg = createSelector(
+    [selectAgents],
+    agents => agents.searchError
+);
