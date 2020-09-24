@@ -62,7 +62,7 @@
 
     &__table-header {
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr;
 
         background-color: $color-primary;
         padding: .2rem .5rem;
@@ -72,7 +72,7 @@
 
     &__table-data {
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr;
 
         padding: .2rem .3rem;
 

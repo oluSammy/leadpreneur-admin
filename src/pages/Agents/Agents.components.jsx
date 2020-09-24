@@ -91,9 +91,9 @@ const Agents = ({ agents, getAgents, isGettingAgents, searchAgent, searchResult,
                     <p className="agents__table-data--referer number">{agent.data.totalReferrers}</p>
                     {
                         agent.data.isActivated ?
-                            <p className="agents__table-data--action"> <FcCancel /> <span>Disable</span> </p>
+                            <p className="agents__table-data--action"><FcCheckmark /> <span>Active</span> </p>
                         :
-                            <p className="agents__table-data--action"> <FcCheckmark /> <span>Activate</span> </p>
+                            <p className="agents__table-data--action"> <FcCancel />  <span>Inactive</span> </p>
                     }
                 </Link>
             )}
