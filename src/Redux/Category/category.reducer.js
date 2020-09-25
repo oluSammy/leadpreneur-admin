@@ -1,7 +1,7 @@
 import { categoryActionTypes } from './category.types';
 
 const INIT_STATE = {
-    categories: [],
+    categories: null,
     isAddingCategories: false,
     addCategoryErrMsg: '',
     isGettingCategory: false,

@@ -50,32 +50,15 @@ export const asyncGetCategories = () => {
         try {
             dispatch(getCategoryStart());
             const categoryRef = firestore.collection("categories");
-            const categoryDoc = await categoryRef.get()
-            const categories = [];
-            categoryDoc.forEach(doc => {
-                categories.push(doc.data());
-            });
-            dispatch(getCategorySuccess(categories))
-            // categoryRef.onSnapshot(querySnapshot => {
-            //     querySnapshot.docChanges().forEach(change => {
-            //         if (change.type === 'added') {
-            //             dispatch(getCategorySuccess(change.doc.data()))
-            //         }
-            //     })
-            // })
+            categoryRef.onSnapshot(docSnapshot => {
+                const categories = [];
+                docSnapshot.forEach(doc => {
+                    categories.push(doc.data());
+                });
+                dispatch(getCategorySuccess(categories));
+            })
         } catch (error) {
             dispatch(getCategoriesFailure(error));
         }
     }
 }
-
-const updateCategories = newCategory => ({
-    type: categoryActionTypes.UPDATE_CATEGORY,
-    payload: newCategory
-});
-
-// asyncUpdateCategories = () => {
-//     return async dispatch => {
-//         const catego
-//     }
-// }

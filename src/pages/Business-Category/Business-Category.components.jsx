@@ -4,14 +4,17 @@ import './Business-Category.styles.scss';
 import { BiMessageAltAdd } from 'react-icons/bi';
 import { connect } from 'react-redux';
 import { asyncAddCategory, asyncGetCategories } from './../../Redux/Category/category.actions';
-import { selectIsAddingCategories } from './../../Redux/Category/category.selectors';
+import { selectCategoriesSlice, selectIsAddingCategories } from './../../Redux/Category/category.selectors';
 
-const BusinessCategory = ({ addCategory, isAddingCategories, getCategory }) => {
+const BusinessCategory = ({ addCategory, isAddingCategories, getCategory, categories }) => {
     const [categoryName, setCategoryName] = useState("");
 
     useEffect(() => {
-        getCategory();
-    }, [])
+        const fetchCategories = async () => {
+            await getCategory();
+        }
+        fetchCategories();
+    }, [getCategory])
 
     const handleSubmit = async e => {
         e.preventDefault();
@@ -40,7 +43,12 @@ const BusinessCategory = ({ addCategory, isAddingCategories, getCategory }) => {
                 <div className="category__table-header">
                     <h5 className="category__table--heading">Business Categories</h5>
                 </div>
-                <div className="category__table-data">
+                {categories && categories.map(category =>
+                    <div className="category__table-data">
+                        <p className="category__table--text">{category.categoryName}</p>
+                    </div>
+                    )}
+                {/* <div className="category__table-data">
                     <p className="category__table--text">Test Category</p>
                 </div>
                 <div className="category__table-data">
@@ -51,14 +59,15 @@ const BusinessCategory = ({ addCategory, isAddingCategories, getCategory }) => {
                 </div>
                 <div className="category__table-data">
                     <p className="category__table--text">Test Category</p>
-                </div>
+                </div> */}
             </div>
         </div>
     )
 };
 
 const mapStateToProps = state => ({
-    isAddingCategories: selectIsAddingCategories(state)
+    isAddingCategories: selectIsAddingCategories(state),
+    categories: selectCategoriesSlice(state)
 })
 
 const mapDispatchToProps = dispatch => ({
