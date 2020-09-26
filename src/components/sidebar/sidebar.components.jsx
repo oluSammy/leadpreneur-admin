@@ -9,7 +9,6 @@ import { FiUserCheck } from 'react-icons/fi';
 import { BiMessageSquareError } from 'react-icons/bi';
 import { TiUserAddOutline } from 'react-icons/ti';
 import { GoDashboard } from 'react-icons/go';
-import { AiOutlineMan } from 'react-icons/ai';
 import { IoMdBusiness } from 'react-icons/io';
 
 import { NavLink } from 'react-router-dom';
@@ -18,7 +17,7 @@ const Sidebar = () => (
     <div className="sidebar">
         <div className="sidebar__img">
             <GrUserAdmin className="sidebar__avatar"/>
-        </div>        
+        </div>
         <h4 className="sidebar__admin">
             olumorinsammy@gmail.com
         </h4>
@@ -55,10 +54,6 @@ const Sidebar = () => (
                 <IoMdBusiness className="sidebar__list--icon" />
                 Business Categories
             </NavLink>
-            <NavLink to="/search-filter" className="sidebar__list--item" activeClassName="sidebar__list--active">
-                <AiOutlineMan className="sidebar__list--icon" />
-                Manage Search Filter
-            </NavLink>            
         </ul>
     </div>
 );

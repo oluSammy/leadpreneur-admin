@@ -10,12 +10,10 @@ import ExpiredSubscription from '../Expired-subscription/Expired-Subscription.co
 import Agents from '../Agents/Agents.components';
 import AddAgent from '../Add-agent/Add-agent.component';
 import BusinessCategory from '../Business-Category/Business-Category.components';
-import SearchFilter from '../Search-Filter/Search-Filter.components';
-import AddCountry from '../Add-Country/Add-Country.components';
-import Country from '../Country/Country.components';
 import UserSearch from './../Search-User/User-Search.components';
 import AgentPage from '../AgentPage/AgentPage.component';
 import SearchAgent from '../search-agent/SearchAgent.component';
+import User from './../User/User.component';
 
 
 const DashboardMain = () => (
@@ -29,12 +27,10 @@ const DashboardMain = () => (
             <Route exact path="/agents" component={Agents} />
             <Route exact path="/new-agent" component={AddAgent} />
             <Route exact path="/category" component={BusinessCategory} />
-            <Route exact path="/search-filter" component={SearchFilter} />
-            <Route exact path="/new-country" component={AddCountry} />
-            <Route exact path="/country/nigeria" component={Country} />
             <Route exact path="/search-user" component={UserSearch} />
             <Route exact path="/agent/:id" component={AgentPage} />
             <Route exact path="/search-agent/:id" component={SearchAgent} />
+            <Route exact path="/user/:id" component={User} />
         </Switch>
     </div>
 )
