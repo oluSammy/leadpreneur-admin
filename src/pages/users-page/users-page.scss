@@ -41,6 +41,7 @@
         padding: 2rem;
         border-radius: 1.2rem;
         margin-top: .3rem;
+        margin-bottom: 5rem;
     }
 
     &__count-box {
@@ -78,13 +79,14 @@
 
     &__table-more {
         margin-top: 2rem;
-        padding: .5rem 4rem;
+        padding: .8rem 8rem;
         border: 1.2px solid $color-primary-dark;
         background-color: $color-white;
         color: $color-primary-dark;
         cursor: pointer;
         border-radius: 1.2rem;
         box-shadow: 1px 2px 2px 0px rgba(0,0,0,0.75);
+        font-size: 1.6rem;
 
         &:hover {
             background-color: $color-primary;

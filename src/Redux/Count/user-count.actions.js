@@ -21,10 +21,11 @@ export const asyncGetUserCount = () => {
             dispatch(getUserCountStart());
 
             const userCountRef = firestore.collection('users_agents_count');
-            const userCountDocs = await userCountRef.get();
-            userCountDocs.docs.forEach(doc => {
-                dispatch(getUserCountSuccess(doc.data()));
-            });
+            userCountRef.onSnapshot(docSnapShot => {
+                docSnapShot.docs.forEach(doc => {
+                    dispatch(getUserCountSuccess(doc.data()));
+                });
+            })
         } catch (error) {
             dispatch(getUserCountFailure(error));
         }
