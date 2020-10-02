@@ -27,4 +27,13 @@
     &__value {
         font-size: 1.3rem;
     }
+
+    &__action {
+        font-size: 1.4rem;
+        margin-left: 2rem;
+        color: $color-primary;
+        font-weight: 700;
+        text-decoration: underline;
+        cursor: pointer;
+    }
 }

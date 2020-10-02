@@ -24,7 +24,7 @@ const App = ({ setCurrentUser, currentUser }) => {
   return(
     <div className="App">
       {
-        true ? <Dashboard /> : <Login />
+        true ?<Dashboard />   : <Login />
       }
     </div>
   )

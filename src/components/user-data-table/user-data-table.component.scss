@@ -34,11 +34,12 @@
     &__data-box {
         display: grid;
         grid-template-columns: .8fr .6fr 1fr .7fr .6fr .5fr;
-        
+
         padding: .5rem .3rem;
         color: $text-color;
         cursor: pointer;
         transition: all .2s;
+        text-decoration: none;
 
         @media only screen and (max-width: $bp-phone) {
             display: block;
@@ -52,7 +53,7 @@
             color: $color-white;
         }
     }
-    
+
 
     &__data-box:nth-child(2n) {
         background-color: $color-grey-light-3;

@@ -1,5 +1,7 @@
 import { usersActionTypes } from './users.types';
 import { firestore } from '../../firebase/firebase.utils';
+import Swal from 'sweetalert2';
+import firebase from 'firebase/app';
 
 const getUsersStart = () => ({
     type: usersActionTypes.GET_INIT_USERS_START
@@ -32,24 +34,39 @@ const getMoreUsersSuccess = users => ({
 const getMoreUsersFailure = errorMsg => ({
     type: usersActionTypes.GET_MORE_USERS_FAILURE,
     payload: errorMsg
-})
+});
+
+const getUserDetailStart = () => ({
+    type: usersActionTypes.GET_USERS_DETAIL_START
+});
+
+const getUserDetailSuccess = userDetail => ({
+    type: usersActionTypes.GET_USERS_DETAIL_SUCCESS,
+    payload: userDetail
+});
+
+const getUserDetailFailure = errMsg => ({
+    type: usersActionTypes.GET_USERS_DETAIL_FAILURE,
+    payload: errMsg
+});
 
 export const asyncGetInitUsers = () => {
     return async dispatch => {
         try {
             dispatch(getUsersStart());
-            const usersRef = firestore.collection("users").orderBy("registrationDate", "desc").limit(1);
-            const usersDoc = await usersRef.get();
-            let users = [];
-            usersDoc.docs.forEach(doc => {
-                users.push(doc.data());
+            const usersRef = firestore.collection("users").orderBy("registrationDate", "desc").limit(30);
+            usersRef.onSnapshot(docSnapShot => {
+                let users = [];
+                docSnapShot.docs.forEach(doc => {
+                    users.push({id: doc.id, data: doc.data()});
+                });
+                dispatch(getUsersSuccess(users));
+                const lastDoc = docSnapShot.docs[docSnapShot.docs.length - 1];
+                dispatch(setPrevDoc(lastDoc));
             });
-            dispatch(getUsersSuccess(users));
-            const lastDoc = usersDoc.docs[usersDoc.docs.length - 1]
-            dispatch(setPrevDoc(lastDoc));
 
         } catch (errorMsg) {
-            dispatch(getUsersFailure(errorMsg))
+            dispatch(getUsersFailure(errorMsg));
         }
     }
 }
@@ -60,17 +77,59 @@ export const asyncGetMoreUsers = prevDoc => {
         try {
             dispatch(getMoreUsersStart());
 
-            const usersRef = firestore.collection("users").orderBy("registrationDate", "desc").startAfter(prevDoc).limit(1);
-            const newUsersDoc = await usersRef.get();
-            let users = []
-            newUsersDoc.docs.forEach(doc =>{
-                users.push(doc.data())
+            const usersRef = firestore.collection("users").orderBy("registrationDate", "desc").startAfter(prevDoc).limit(30);
+            usersRef.onSnapshot(docSnapShot => {
+                let users = []
+                docSnapShot.docs.forEach(doc =>{
+                    users.push({id: doc.id, data: doc.data()})
+                });
+                dispatch(getMoreUsersSuccess(users));
+                const lastDoc = docSnapShot.docs[docSnapShot.docs.length - 1];
+                dispatch(setPrevDoc(lastDoc));
             });
-            dispatch(getMoreUsersSuccess(users));
-            const lastDoc = newUsersDoc.docs[newUsersDoc.docs.length - 1]
-            dispatch(setPrevDoc(lastDoc));
         } catch (e) {
-            dispatch(getMoreUsersFailure(e))
+            dispatch(getMoreUsersFailure(e));
         }
+    }
+}
+
+export const asyncGetUserDetail = userId => {
+    return async dispatch => {
+        try {
+            dispatch(getUserDetailStart());
+            const userRef = firestore.collection('users').doc(`${userId}`)
+            userRef.onSnapshot(docSnapShot => {
+                dispatch(getUserDetailSuccess(docSnapShot.data()));
+            })
+
+        } catch (errMsg) {
+            dispatch(getUserDetailFailure(errMsg));
+        }
+    }
+}
+
+export const asyncUpdateActivationStatus = (status, userId) => {
+    return () => {
+        try {
+            const userRef = firestore.collection('users').doc(`${userId}`);
+            if(status === 'activate') {
+                let today = new Date();
+                today.setDate(today.getDate() + 365);
+                console.log(today);
+                const fireStamp = new firebase.firestore.Timestamp.fromDate(today);
+                userRef.update({isActivated: true, expiration: fireStamp})
+            } else {
+                userRef.update({isActivated: false, expiration: null});
+            }
+
+        } catch (error) {
+            console.log(error)
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: `Could not update user's activation status`,
+            })
+        }
+
     }
 }

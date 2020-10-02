@@ -6,7 +6,10 @@ const INIT_STATE = {
     getUserErrMsg: '',
     prevDoc: null,
     isGettingMoreUsers: false,
-    getMoreErrMsg: ''
+    getMoreErrMsg: '',
+    userDetail: null,
+    isGettingUserDetail: false,
+    getUserDetailErrMsg: ''
 }
 
 export const usersReducer = (state = INIT_STATE, action) => {
@@ -55,6 +58,26 @@ export const usersReducer = (state = INIT_STATE, action) => {
                 ...state,
                 isGettingMoreUsers: true,
                 getMoreErrMsg: action.payload
+            }
+        }
+        case usersActionTypes.GET_USERS_DETAIL_START: {
+            return {
+                ...state,
+                isGettingUserDetail: true,
+            }
+        }
+        case usersActionTypes.GET_USERS_DETAIL_SUCCESS: {
+            return {
+                ...state,
+                isGettingUserDetail: false,
+                userDetail: action.payload
+            }
+        }
+        case usersActionTypes.GET_USERS_DETAIL_FAILURE: {
+            return {
+                ...state,
+                isGettingUserDetail: false,
+                getUserDetailErrMsg: action.payload
             }
         }
         default:

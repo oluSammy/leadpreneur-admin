@@ -20,4 +20,15 @@ export const selectPrevDoc = createSelector(
 export const isGettingMoreUsers = createSelector(
     [selectUsers],
     users => users.isGettingMoreUsers
-)
+);
+
+export const selectIsGettingUserDetail = createSelector(
+    [selectUsers],
+    users => users.isGettingUserDetail
+);
+
+export const selectUserDetail = createSelector(
+    [selectUsers],
+    users => users.userDetail
+);
+
