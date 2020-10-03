@@ -17,7 +17,7 @@ const UserDataTable = ({ users, allUsers }) => {
                 <h4 className="user-data__heading-text">Expiration</h4>
             </div>
             {allUsers && users.map(user =>
-                <Link to={`user/${user.id}`} className="user-data__data-box" key={user.id}>
+                <Link to={`/user/${user.id}`} className="user-data__data-box" key={user.id}>
                     <p className="user-data__text">{`${user.data.firstName} ${user.data.lastName}`}</p>
                     <p className="user-data__text">{user.data.username}</p>
                     <p className="user-data__text">{user.data.email}</p>

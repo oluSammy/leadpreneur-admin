@@ -109,17 +109,20 @@ export const asyncGetUserDetail = userId => {
 }
 
 export const asyncUpdateActivationStatus = (status, userId) => {
-    return () => {
+    return async () => {
         try {
             const userRef = firestore.collection('users').doc(`${userId}`);
+            const countRef = firestore.collection('users_agents_count').doc('Kd3xKFGqDNZjnOolRxN2')
             if(status === 'activate') {
                 let today = new Date();
                 today.setDate(today.getDate() + 365);
                 console.log(today);
                 const fireStamp = new firebase.firestore.Timestamp.fromDate(today);
-                userRef.update({isActivated: true, expiration: fireStamp})
+                await userRef.update({isActivated: true, expiration: fireStamp})
+                await countRef.update({activatedUsers: firebase.firestore.FieldValue.increment(1)})
             } else {
-                userRef.update({isActivated: false, expiration: null});
+                await userRef.update({isActivated: false, expiration: null});
+                await countRef.update({activatedUsers: firebase.firestore.FieldValue.increment(-1)})
             }
 
         } catch (error) {

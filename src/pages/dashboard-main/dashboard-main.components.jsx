@@ -27,7 +27,7 @@ const DashboardMain = () => (
             <Route exact path="/agents" component={Agents} />
             <Route exact path="/new-agent" component={AddAgent} />
             <Route exact path="/category" component={BusinessCategory} />
-            <Route exact path="/search-user" component={UserSearch} />
+            <Route exact path="/search-user/:id" component={UserSearch} />
             <Route exact path="/agent/:id" component={AgentPage} />
             <Route exact path="/search-agent/:id" component={SearchAgent} />
             <Route exact path="/user/:id" component={User} />

@@ -6,6 +6,7 @@ import userCountReducer from './Count/user-count.reducer';
 import agentReducer from './Agents/agents.reducer';
 import { categoryReducer } from './Category/category.reducer';
 import { usersReducer } from './Users/users.reducer';
+import searchUserReducer from './Search-User/searchUser.reducer';
 
 
 
@@ -20,7 +21,8 @@ const rootReducer = combineReducers({
     userCount: userCountReducer,
     agents: agentReducer,
     category: categoryReducer,
-    users: usersReducer
+    users: usersReducer,
+    searchUser: searchUserReducer
 });
 
 export default persistReducer(persistConfig, rootReducer);
