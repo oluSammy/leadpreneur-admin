@@ -55,7 +55,7 @@ const UsersPage = ({ userCount, isGettingUserCount, getInitUsers, isGettingUsers
                             userCount && !isGettingUserCount ? userCount.registeredUsers - userCount.activatedUsers : '.'
                         }
                     </h5>
-                    <p className="users__count-box--text">Inactivated</p>
+                    <p className="users__count-box--text">Inactive</p>
                 </div>
             </div>
             {/* <div className="users__sort">
