@@ -43,7 +43,7 @@ const DeactivateUserPage = ({ getActivatedUsers, isGettingActivatedUsers, activa
             <div className="align-center">
                 {isGettingActivatedUsers ? '' :
                     userCount.activatedUsers > activatedUsers.length ?
-                    <button onClick={getActiveUsers} className="users__table-more">More</button> : '' }
+                    <button onClick={getActiveUsers} className="users__table-more">More</button> : ''}
             </div>
         </div>
     )
