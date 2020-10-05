@@ -9,18 +9,17 @@
 
     &__nav {
         grid-column: 1 / -1;
-        z-index: 90;
+        z-index: 10;
     }
 
     &__sidebar {
         position: fixed;
         width: 18vw;
+        transition: all .4s;
+        z-index: 9;
 
         @media only screen and (max-width: $bp-large) {
-            width: 21vw;
-        }
-
-        @media only screen and (max-width: $bp-large) {
+            width: 60vw;
             transform: translateX(-100%);
         }
     }

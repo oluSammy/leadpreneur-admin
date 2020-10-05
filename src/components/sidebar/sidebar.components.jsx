@@ -13,52 +13,55 @@ import { IoMdBusiness } from 'react-icons/io';
 
 import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { selectUserSlice } from './../../Redux/User/user.selectors';
+import { selectSidebarState, selectUserSlice } from './../../Redux/User/user.selectors';
 
-const Sidebar = ({ user }) => (
-    <div className="sidebar">
-        <div className="sidebar__img">
-            <GrUserAdmin className="sidebar__avatar"/>
+const Sidebar = ({ user }) => {
+
+    return(
+        <div className="sidebar">
+            <div className="sidebar__img">
+                <GrUserAdmin className="sidebar__avatar"/>
+            </div>
+            <h4 className="sidebar__admin">
+                {user ? user.email : '*'}
+            </h4>
+            <ul className="sidebar__list">
+                <NavLink to="/dashboard" className="sidebar__list--item" activeClassName="sidebar__list--active" >
+                    <GoDashboard className="sidebar__list--icon" />
+                    Dashboard
+                </NavLink>
+                <NavLink to="/users" className="sidebar__list--item" activeClassName="sidebar__list--active" >
+                    <HiOutlineUsers className="sidebar__list--icon" />
+                    All Users
+                </NavLink>
+                <NavLink to="/activate-users" className="sidebar__list--item" activeClassName="sidebar__list--active">
+                    <FiUserCheck className="sidebar__list--icon" />
+                    Activate Users
+                </NavLink>
+                <NavLink to="/deactivate-users" className="sidebar__list--item" activeClassName="sidebar__list--active">
+                    <FaUserSlash className="sidebar__list--icon" />
+                    Deactivate Users
+                </NavLink>
+                <NavLink to="/expired-subscription" className="sidebar__list--item" activeClassName="sidebar__list--active">
+                    <BiMessageSquareError className="sidebar__list--icon" />
+                    Expired Subscription
+                </NavLink>
+                <NavLink to="/agents" className="sidebar__list--item" activeClassName="sidebar__list--active">
+                    <AiOutlineUserSwitch className="sidebar__list--icon" />
+                    Agents
+                </NavLink>
+                <NavLink to="/new-agent" className="sidebar__list--item" activeClassName="sidebar__list--active">
+                    <TiUserAddOutline className="sidebar__list--icon" />
+                    New Agent
+                </NavLink>
+                <NavLink to="/category" className="sidebar__list--item" activeClassName="sidebar__list--active">
+                    <IoMdBusiness className="sidebar__list--icon" />
+                    Business Categories
+                </NavLink>
+            </ul>
         </div>
-        <h4 className="sidebar__admin">
-            {user ? user.email : '*'}
-        </h4>
-        <ul className="sidebar__list">
-            <NavLink to="/dashboard" className="sidebar__list--item" activeClassName="sidebar__list--active" >
-                <GoDashboard className="sidebar__list--icon" />
-                Dashboard
-            </NavLink>
-            <NavLink to="/users" className="sidebar__list--item" activeClassName="sidebar__list--active" >
-                <HiOutlineUsers className="sidebar__list--icon" />
-                All Users
-            </NavLink>
-            <NavLink to="/activate-users" className="sidebar__list--item" activeClassName="sidebar__list--active">
-                <FiUserCheck className="sidebar__list--icon" />
-                Activate Users
-            </NavLink>
-            <NavLink to="/deactivate-users" className="sidebar__list--item" activeClassName="sidebar__list--active">
-                <FaUserSlash className="sidebar__list--icon" />
-                Deactivate Users
-            </NavLink>
-            <NavLink to="/expired-subscription" className="sidebar__list--item" activeClassName="sidebar__list--active">
-                <BiMessageSquareError className="sidebar__list--icon" />
-                Expired Subscription
-            </NavLink>
-            <NavLink to="/agents" className="sidebar__list--item" activeClassName="sidebar__list--active">
-                <AiOutlineUserSwitch className="sidebar__list--icon" />
-                Agents
-            </NavLink>
-            <NavLink to="/new-agent" className="sidebar__list--item" activeClassName="sidebar__list--active">
-                <TiUserAddOutline className="sidebar__list--icon" />
-                New Agent
-            </NavLink>
-            <NavLink to="/category" className="sidebar__list--item" activeClassName="sidebar__list--active">
-                <IoMdBusiness className="sidebar__list--icon" />
-                Business Categories
-            </NavLink>
-        </ul>
-    </div>
-);
+    )
+};
 
 const mapStateToProps = state => ({
     user: selectUserSlice(state)

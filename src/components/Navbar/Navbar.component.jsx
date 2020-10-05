@@ -11,12 +11,13 @@ import { TiSocialTwitterCircular } from 'react-icons/ti';
 import { NavLink, Link } from 'react-router-dom';
 import { auth } from './../../firebase/firebase.utils';
 import { connect } from 'react-redux';
-import { selectUserSlice } from './../../Redux/User/user.selectors';
+import { selectUserSlice, selectSidebarState } from './../../Redux/User/user.selectors';
+import { toggleSideBar } from '../../Redux/User/user.actions';
 
 
-const Navbar = ({ currentUser }) => (
+const Navbar = ({ currentUser, toggleSidebar, sidebarIsHidden }) => (
   <div className="navbar">
-    {/* <AiOutlineClose className="navbar__menu" /> */}
+    {/*  */}
     <div className="navbar__logo">
       <h1 className="navbar__logo--text">
         <span className="lead">Leadpreneuer</span>
@@ -52,13 +53,19 @@ const Navbar = ({ currentUser }) => (
         <TiSocialTwitterCircular className="navbar__socials--logo" />
       </a>
     </ul>
-    <HiOutlineMenu className="navbar__menu"/>
+    {sidebarIsHidden ? <HiOutlineMenu onClick={toggleSidebar} className="navbar__menu"/> :
+    <AiOutlineClose onClick={toggleSidebar} className="navbar__menu" /> }
   </div>
 );
 
 const mapStateToProps = state => ({
-  currentUser: selectUserSlice(state)
+  currentUser: selectUserSlice(state),
+  sidebarIsHidden: selectSidebarState(state)
+});
+
+const mapDispatchToProps = dispatch => ({
+  toggleSidebar: () => dispatch(toggleSideBar())
 })
 
 
-export default connect(mapStateToProps) (Navbar);
+export default connect(mapStateToProps, mapDispatchToProps) (Navbar);

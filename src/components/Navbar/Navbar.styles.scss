@@ -11,15 +11,16 @@
         padding: .4rem 2rem;
     }
 
-    // @media only screen and (max-width: $bp-large) {
-    //     transform: translateX(-100%);
-    // }
-
 
     &__menu {
         font-size: 3.5rem;
         margin-right: 1.4rem;
         cursor: pointer;
+        display: none;
+
+        @media only screen and (max-width: $bp-large) {
+            display: block;
+        }
     }
 
     &__logo {
