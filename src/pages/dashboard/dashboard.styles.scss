@@ -23,15 +23,14 @@
         @media only screen and (max-width: $bp-large) {
             transform: translateX(-100%);
         }
-        
     }
 
-     &__main {
+    &__main {
         grid-column: 2 / -1;
 
         @media only screen and (max-width: $bp-large) {
             grid-column: 1 / -1;
         }
 
-     }
+    }
 }

@@ -9,6 +9,7 @@ import { usersReducer } from './Users/users.reducer';
 import searchUserReducer from './Search-User/searchUser.reducer';
 import activatedUsersReducer from './Activated-Users/ActivatedUsers.reducer';
 import inactiveUsersReducer from './Inacive-Users/InactiveUser.reducer';
+import expiredReducer from './Expired-Users/Expired.reducer';
 
 
 
@@ -26,7 +27,8 @@ const rootReducer = combineReducers({
     users: usersReducer,
     searchUser: searchUserReducer,
     activatedUsers: activatedUsersReducer,
-    inactiveUsers: inactiveUsersReducer
+    inactiveUsers: inactiveUsersReducer,
+    expiredUsers: expiredReducer
 });
 
 export default persistReducer(persistConfig, rootReducer);

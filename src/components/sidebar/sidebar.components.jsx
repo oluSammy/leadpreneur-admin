@@ -12,14 +12,16 @@ import { GoDashboard } from 'react-icons/go';
 import { IoMdBusiness } from 'react-icons/io';
 
 import { NavLink } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { selectUserSlice } from './../../Redux/User/user.selectors';
 
-const Sidebar = () => (
+const Sidebar = ({ user }) => (
     <div className="sidebar">
         <div className="sidebar__img">
             <GrUserAdmin className="sidebar__avatar"/>
         </div>
         <h4 className="sidebar__admin">
-            olumorinsammy@gmail.com
+            {user ? user.email : '*'}
         </h4>
         <ul className="sidebar__list">
             <NavLink to="/dashboard" className="sidebar__list--item" activeClassName="sidebar__list--active" >
@@ -58,4 +60,8 @@ const Sidebar = () => (
     </div>
 );
 
-export default Sidebar;
+const mapStateToProps = state => ({
+    user: selectUserSlice(state)
+})
+
+export default connect(mapStateToProps) (Sidebar);

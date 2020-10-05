@@ -3,8 +3,8 @@ import './Navbar.styles.scss';
 
 import { FiUsers } from 'react-icons/fi';
 import { AiOutlineLogout } from 'react-icons/ai';
-// import { AiOutlineClose } from 'react-icons/ai';
-// import { HiOutlineMenu } from 'react-icons/hi';
+import { AiOutlineClose } from 'react-icons/ai';
+import { HiOutlineMenu } from 'react-icons/hi';
 import { RiUserShared2Line, RiFacebookCircleLine } from 'react-icons/ri';
 import { IoLogoInstagram } from 'react-icons/io';
 import { TiSocialTwitterCircular } from 'react-icons/ti';
@@ -16,7 +16,6 @@ import { selectUserSlice } from './../../Redux/User/user.selectors';
 
 const Navbar = ({ currentUser }) => (
   <div className="navbar">
-    {/* <HiOutlineMenu className="navbar__menu"/> */}
     {/* <AiOutlineClose className="navbar__menu" /> */}
     <div className="navbar__logo">
       <h1 className="navbar__logo--text">
@@ -25,16 +24,16 @@ const Navbar = ({ currentUser }) => (
       </h1>
     </div>
       {
-        currentUser && 
-          <ul className="navbar__list">      
+        currentUser &&
+          <ul className="navbar__list">
             <NavLink to="/users" className="navbar__list--item navbar-link">
-              <FiUsers className="navbar__list--icon" /> 
-              Users 
+              <FiUsers className="navbar__list--icon" />
+              Users
             </NavLink>
             <NavLink to="/agents" className="navbar__list--item navbar-link">
               <RiUserShared2Line className="navbar__list--icon" />
               Agents
-            </NavLink>          
+            </NavLink>
             <Link to="" onClick={() => auth.signOut()} className="navbar__list--item navbar-link">
               <AiOutlineLogout className="navbar__list--icon" />
               Sign out
@@ -53,6 +52,7 @@ const Navbar = ({ currentUser }) => (
         <TiSocialTwitterCircular className="navbar__socials--logo" />
       </a>
     </ul>
+    <HiOutlineMenu className="navbar__menu"/>
   </div>
 );
 
