@@ -15,7 +15,7 @@ const Homepage = ({ userCount, isGettingUserCount, userCountError }) => {
 
     return(
         <div className="homepage">
-            <div className="homepage__boxes">            
+            <div className="homepage__boxes">
                 <div className="homepage__box homepage__box--1">
                     <h5 className="homepage__box--heading">Registered Users</h5>
                     <div className="homepage__box--flex">
@@ -41,7 +41,7 @@ const Homepage = ({ userCount, isGettingUserCount, userCountError }) => {
                     <button onClick={() => history.push(`/deactivate-users`)} className="homepage__box--action">View</button>
                 </div>
                 <div className="homepage__box homepage__box--3">
-                    <h5 className="homepage__box--heading">Agents</h5>
+                    <h5 className="homepage__box--heading">Consultants</h5>
                     <div className="homepage__box--flex">
                         <FaUserTie className="homepage__box--icon" />
                         <p className="homepage__box--number">
@@ -57,7 +57,7 @@ const Homepage = ({ userCount, isGettingUserCount, userCountError }) => {
             <div className="homepage__actions">
                 <Link to="/new-agent" className="homepage__action homepage__action--1">
                     <FiUserPlus className="homepage__action--icon"/>
-                    <h6 className="homepage__action--text">New Agent</h6>
+                    <h6 className="homepage__action--text">New Consultant</h6>
                 </Link>
                 <div className="homepage__action homepage__action--2">
                     <AiOutlineUserAdd className="homepage__action--icon"/>
