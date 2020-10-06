@@ -50,6 +50,20 @@ const getUserDetailFailure = errMsg => ({
     payload: errMsg
 });
 
+const updateActivationStatusStart = () => ({
+    type: usersActionTypes.UPDATE_ACTIVATION_STATUS_START
+});
+
+const updateActivationStatusSuccess = () => ({
+    type: usersActionTypes.UPDATE_ACTIVATION_STATUS_SUCCESS
+});
+
+const updateActivationStatusFailure= () => ({
+    type: usersActionTypes.UPDATE_ACTIVATION_STATUS_FAILURE
+});
+
+
+
 export const asyncGetInitUsers = () => {
     return async dispatch => {
         try {
@@ -109,8 +123,9 @@ export const asyncGetUserDetail = userId => {
 }
 
 export const asyncUpdateActivationStatus = (status, userId) => {
-    return async () => {
+    return async dispatch => {
         try {
+            dispatch(updateActivationStatusStart());
             const userRef = firestore.collection('users').doc(`${userId}`);
             const countRef = firestore.collection('users_agents_count').doc('Kd3xKFGqDNZjnOolRxN2')
             if(status === 'activate') {
@@ -120,13 +135,15 @@ export const asyncUpdateActivationStatus = (status, userId) => {
                 const fireStamp = new firebase.firestore.Timestamp.fromDate(today);
                 await userRef.update({isActivated: true, expiration: fireStamp})
                 await countRef.update({activatedUsers: firebase.firestore.FieldValue.increment(1)})
+                dispatch(updateActivationStatusSuccess());
             } else {
                 await userRef.update({isActivated: false, expiration: null});
                 await countRef.update({activatedUsers: firebase.firestore.FieldValue.increment(-1)})
+                dispatch(updateActivationStatusSuccess());
             }
 
         } catch (error) {
-            console.log(error)
+            dispatch(updateActivationStatusFailure());
             Swal.fire({
                 icon: 'error',
                 title: 'Oops...',

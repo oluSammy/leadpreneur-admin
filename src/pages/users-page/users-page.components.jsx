@@ -109,7 +109,7 @@ const UsersPage = ({ userCount, isGettingUserCount, getInitUsers, isGettingUsers
             {
                 isGettingUsers ? '' :
                 <div className="align-center">
-                    {userCount.registeredUsers > users.length &&
+                    {userCount && userCount.registeredUsers > users.length &&
                     <button onClick={addMoreUsers} className="users__table-more">More</button>}
                 </div>
             }

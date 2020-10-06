@@ -13,7 +13,7 @@ import { IoMdBusiness } from 'react-icons/io';
 
 import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { selectSidebarState, selectUserSlice } from './../../Redux/User/user.selectors';
+import { selectUserSlice } from './../../Redux/User/user.selectors';
 
 const Sidebar = ({ user }) => {
 

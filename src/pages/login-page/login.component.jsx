@@ -21,7 +21,8 @@ const Login = () => {
         e.preventDefault();
         try {
             setIsSigningIn(true);
-
+            setEmailError("");
+            setPasswordError("");
             await auth.signInWithEmailAndPassword(email, password);
 
             setIsSigningIn(false);
@@ -63,22 +64,22 @@ const Login = () => {
                 <h3 className="login__header">Log in</h3>
                 <div className="login__form-group">
                     <AiOutlineMail className="login__icon" />
-                    <input 
+                    <input
                         onChange={e => setEmail(e.target.value)}
                         value={email}
-                        className="login__input" type="email" 
-                        name="login-email" id="login-email" 
-                        placeholder="Email" required 
+                        className="login__input" type="email"
+                        name="login-email" id="login-email"
+                        placeholder="Email" required
                     />
                     <p className="login__error-msg">{emailError}</p>
                 </div>
                 <div className="login__form-group">
                     <RiLockPasswordLine className="login__icon" />
-                    <input 
+                    <input
                         onChange={e => setPassword(e.target.value)}
-                        className="login__input" type="password" 
-                        name="password" id="password" 
-                        placeholder="Password" required 
+                        className="login__input" type="password"
+                        name="password" id="password"
+                        placeholder="Password" required
                     />
                     <p className="login__error-msg">{passwordError}</p>
                 </div>
@@ -98,7 +99,7 @@ const Login = () => {
                             <AiOutlineLogin />
                         </button>
                 }
-                
+
                 <p onClick={()=> forgotPassword()} className="login__forgot-pass">Forgot password</p>
             </form>
             <div className="login__bg">

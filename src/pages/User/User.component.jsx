@@ -4,10 +4,10 @@ import { useParams } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { selectUsersSlice } from '../../Redux/Users/users.selectors';
 import { asyncGetUserDetail, asyncUpdateActivationStatus } from './../../Redux/Users/users.actions';
-import { selectIsGettingUserDetail, selectUserDetail } from './../../Redux/Users/users.selectors';
+import { selectIsGettingUserDetail, selectUserDetail, selectIsUpdatingStatus } from './../../Redux/Users/users.selectors';
 import { timeStampToDate } from './../../utilityFunctions/timeStampToDate';
 
-const User = ({ users, getUserDetail, isGettingUserDetail, userDetail, updateUserStatus }) => {
+const User = ({ users, getUserDetail, isGettingUserDetail, userDetail, updateUserStatus, isUpdatingStatus }) => {
     let { id } = useParams();
 
     useEffect(() => {
@@ -47,7 +47,9 @@ const User = ({ users, getUserDetail, isGettingUserDetail, userDetail, updateUse
                     <p className="user-id__value">
                         {userDetail.isActivated ? 'Activated' : 'InActive'}
                     </p>
-                    {userDetail.isActivated ? <p onClick={() => updateUserStatus('deactivate', id)} className="user-id__action">Deactivate</p>:
+                    {userDetail.isActivated ? <p onClick={() => updateUserStatus('deactivate', id)} className="user-id__action">
+                        Deactivate</p> :
+                        isUpdatingStatus ? '.' :
                     <p onClick={() => updateUserStatus('activate', id)} className="user-id__action">Activate </p> }
                 </div>
                 <div className="user-id__row">
@@ -99,7 +101,8 @@ const mapDispatchToProps = dispatch => ({
 const mapStateToProps = state => ({
     users: selectUsersSlice(state),
     isGettingUserDetail: selectIsGettingUserDetail(state),
-    userDetail: selectUserDetail(state)
+    userDetail: selectUserDetail(state),
+    isUpdatingStatus: selectIsUpdatingStatus(state)
 })
 
 export default connect(mapStateToProps, mapDispatchToProps) (User)

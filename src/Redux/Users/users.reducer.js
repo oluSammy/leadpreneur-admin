@@ -9,7 +9,8 @@ const INIT_STATE = {
     getMoreErrMsg: '',
     userDetail: null,
     isGettingUserDetail: false,
-    getUserDetailErrMsg: ''
+    getUserDetailErrMsg: '',
+    isUpdatingStatus: false
 }
 
 export const usersReducer = (state = INIT_STATE, action) => {
@@ -78,6 +79,24 @@ export const usersReducer = (state = INIT_STATE, action) => {
                 ...state,
                 isGettingUserDetail: false,
                 getUserDetailErrMsg: action.payload
+            }
+        }
+        case usersActionTypes.UPDATE_ACTIVATION_STATUS_START: {
+            return {
+                ...state,
+                isUpdatingStatus: true
+            }
+        }
+        case usersActionTypes.UPDATE_ACTIVATION_STATUS_SUCCESS: {
+            return {
+                ...state,
+                isUpdatingStatus: false
+            }
+        }
+        case usersActionTypes.UPDATE_ACTIVATION_STATUS_FAILURE: {
+            return {
+                ...state,
+                isUpdatingStatus: false
             }
         }
         default:

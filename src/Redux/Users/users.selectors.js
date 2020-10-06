@@ -32,3 +32,8 @@ export const selectUserDetail = createSelector(
     users => users.userDetail
 );
 
+export const selectIsUpdatingStatus = createSelector(
+    [selectUsers],
+    users => users.isUpdatingStatus
+);
+
