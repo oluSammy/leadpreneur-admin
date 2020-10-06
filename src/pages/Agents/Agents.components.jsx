@@ -34,12 +34,12 @@ const Agents = ({ agents, getAgents, isGettingAgents, searchAgent, searchResult,
     return (
     <div className="agents">
         <div className="agents__header">
-            <h4 className="agents__heading">Agents</h4>
+            <h4 className="agents__heading">Consultants</h4>
             <form onSubmit={handleSubmit} className="agents__form">
                 <input
                     onChange={ e=> setAgentName(e.target.value)} value={agentName}
                     type="search" name="agent" id="agent" required
-                    placeholder="Search Agents by name" className="agents__search"
+                    placeholder="Search Consultants by name" className="agents__search"
                 />
                 {isSearchingAgent ?
                     <button disabled  className="agents__submit">Searching...</button> :
@@ -60,7 +60,7 @@ const Agents = ({ agents, getAgents, isGettingAgents, searchAgent, searchResult,
                     <option value="october_2020">october 2020</option>
                 </select>
             </div>
-            <Link to="/new-agent" className="agents__new-btn"> <HiOutlineDocumentAdd /> New Agent</Link>
+            <Link to="/new-agent" className="agents__new-btn"> <HiOutlineDocumentAdd /> New Consultant</Link>
         </div>
         <div className="agents__table">
             <div className="agents__table-header">

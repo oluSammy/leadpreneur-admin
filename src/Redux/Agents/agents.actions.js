@@ -58,11 +58,11 @@ const searchAgentFailure = errorMsg => ({
     payload: errorMsg
 })
 
-export const asyncAddAgent = (name) => {
+export const asyncAddAgent = agentCredentials => {
     return async dispatch => {
         try {
             dispatch(addAgentStart());
-
+            const { name, email, phone, address } = agentCredentials;
             const agentRef = firestore.collection('agents');
             const updateAgentRef = firestore.collection('users_agents_count').doc('Kd3xKFGqDNZjnOolRxN2');
             await agentRef.add({
@@ -70,7 +70,10 @@ export const asyncAddAgent = (name) => {
                 isActivated: true,
                 totalReferrers: 0,
                 dateCreated: FieldValue,
-                monthlyReferrer: []
+                monthlyReferrer: [],
+                email,
+                phone,
+                address
             });
             await updateAgentRef.update({agents: firebase.firestore.FieldValue.increment(1)});
 
@@ -80,7 +83,6 @@ export const asyncAddAgent = (name) => {
                 `${name} added as an agent`,
                 'success'
             )
-
         } catch (error) {
             dispatch(addAgentFailure(error));
             Swal.fire({
@@ -100,11 +102,12 @@ export const asyncGetAgents = () => {
 
             dispatch(getAgentsStart());
             const agentsRef = firestore.collection('agents');
-            const agentsDocs = await agentsRef.get();
-            agentsDocs.docs.forEach(doc => {
-                agents.push({id: doc.id, data: doc.data()})
+            agentsRef.onSnapshot(docSnapshot => {
+                docSnapshot.docs.forEach(doc => {
+                    agents.push({id: doc.id, data: doc.data()})
+                });
+                dispatch(getAgentsSuccess(agents))
             });
-            dispatch(getAgentsSuccess(agents))
 
         } catch (error) {
             dispatch(getAgentsFailure(error));
@@ -118,8 +121,9 @@ export const asyncGetAgent = (agentId) => {
             dispatch(getAgentStart())
 
             const agentRef = firestore.collection('agents').doc(`${agentId}`);
-            const agentDoc = await agentRef.get();
-            dispatch(getAgentSuccess(agentDoc.data()));
+            agentRef.onSnapshot(agentDoc => {
+                dispatch(getAgentSuccess(agentDoc.data()));
+            });
 
         } catch (error) {
             dispatch(getAgentFailure(error));

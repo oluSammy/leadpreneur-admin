@@ -67,12 +67,13 @@
         background-color: $color-primary;
         padding: .2rem .5rem;
         border-radius: .5rem;
+        margin-bottom: 1rem;
 
     }
 
     &__table-data {
         display: grid;
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr 1fr;
 
         padding: .2rem .3rem;
 
@@ -81,4 +82,17 @@
             transition: all .2s;
         }
     }
+
+    &__table-icon {
+        margin-top: .4rem;
+        font-size: 1.8rem;
+        margin-left: 50%;
+        display: none;
+        color: orangered;
+        cursor: pointer;
+    }
+}
+
+.category__table-data:hover .category__table-icon {
+    display: block;
 }

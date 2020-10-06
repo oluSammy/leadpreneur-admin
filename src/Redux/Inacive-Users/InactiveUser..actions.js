@@ -39,7 +39,7 @@ export const asyncGetInactiveUsers = () => {
         try {
             dispatch(getInactiveUserStart());
             const usersRef = firestore.collection("users").where("isActivated", "==", false)
-            .orderBy("registrationDate", "desc").limit(1);
+            .orderBy("registrationDate", "desc").limit(30);
             usersRef.onSnapshot(docSnapShot => {
                 let users = [];
                 docSnapShot.docs.forEach(doc => {
@@ -60,7 +60,7 @@ export const asyncGetMoreInactiveUsers = prevDoc => {
         try {
             dispatch(getMoreInactiveUserStart());
             const usersRef = firestore.collection("users").where("isActivated", "==", false)
-            .orderBy("registrationDate", "desc").startAfter(prevDoc).limit(1);
+            .orderBy("registrationDate", "desc").startAfter(prevDoc).limit(30);
             usersRef.onSnapshot(docSnapShot => {
                 let users = []
                 docSnapShot.docs.forEach(doc =>{

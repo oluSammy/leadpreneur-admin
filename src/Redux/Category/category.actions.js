@@ -49,16 +49,28 @@ export const asyncGetCategories = () => {
     return async dispatch => {
         try {
             dispatch(getCategoryStart());
-            const categoryRef = firestore.collection("categories");
+            const categoryRef = firestore.collection("categories").orderBy("categoryName");
             categoryRef.onSnapshot(docSnapshot => {
                 const categories = [];
                 docSnapshot.forEach(doc => {
-                    categories.push(doc.data());
+                    categories.push({id: doc.id, data: doc.data()});
                 });
                 dispatch(getCategorySuccess(categories));
             })
         } catch (error) {
             dispatch(getCategoriesFailure(error));
+        }
+    }
+}
+
+export const deleteCategory = id => {
+    return async () => {
+
+        try {
+            const categoryRef = firestore.collection("categories").doc(`${id}`);
+            await categoryRef.delete();
+        } catch (error) {
+
         }
     }
 }

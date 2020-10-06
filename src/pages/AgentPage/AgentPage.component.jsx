@@ -27,7 +27,7 @@ const AgentPage = ({ agent, getAgent, isGettingAgent, activateAgent, deactivateA
     }
     return (
         <div className="agents-search">
-            <h1 className="agents-search__heading">Agent</h1>
+            <h1 className="agents-search__heading">Consultant</h1>
             {isGettingAgent &&
                 <Loader
                     type="ThreeDots"
@@ -50,6 +50,18 @@ const AgentPage = ({ agent, getAgent, isGettingAgent, activateAgent, deactivateA
                                 {agent.isActivated ? 'Deactivate' : 'Activate' }
                             </p>
                         </div>
+                    </li>
+                    <li className="agents-search__list">
+                        <h6 className="agents-search__title">Email:</h6>
+                        <p className="agents-search__tag number">{agent.email}</p>
+                    </li>
+                    <li className="agents-search__list">
+                        <h6 className="agents-search__title">Phone Number:</h6>
+                        <p className="agents-search__tag number">{agent.phone}</p>
+                    </li>
+                    <li className="agents-search__list">
+                        <h6 className="agents-search__title">Address:</h6>
+                        <p className="agents-search__tag number">{agent.address}</p>
                     </li>
                     <li className="agents-search__list">
                         <h6 className="agents-search__title">Total Referrers:</h6>

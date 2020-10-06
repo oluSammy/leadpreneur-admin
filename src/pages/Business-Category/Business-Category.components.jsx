@@ -3,10 +3,11 @@ import './Business-Category.styles.scss';
 
 import { BiMessageAltAdd } from 'react-icons/bi';
 import { connect } from 'react-redux';
-import { asyncAddCategory, asyncGetCategories } from './../../Redux/Category/category.actions';
+import { asyncAddCategory, asyncGetCategories, deleteCategory } from './../../Redux/Category/category.actions';
 import { selectCategoriesSlice, selectIsAddingCategories } from './../../Redux/Category/category.selectors';
+import { RiDeleteBinLine } from 'react-icons/ri';
 
-const BusinessCategory = ({ addCategory, isAddingCategories, getCategory, categories }) => {
+const BusinessCategory = ({ addCategory, isAddingCategories, getCategory, categories, deleteCategory }) => {
     const [categoryName, setCategoryName] = useState("");
 
     useEffect(() => {
@@ -44,10 +45,14 @@ const BusinessCategory = ({ addCategory, isAddingCategories, getCategory, catego
                     <h5 className="category__table--heading">Business Categories</h5>
                 </div>
                 {categories && categories.map(category =>
-                    <div className="category__table-data">
-                        <p className="category__table--text">{category.categoryName}</p>
+                    <div className="category__table-data" key={category.id} >
+                        {category.data.categoryName ?
+                        <p className="category__table--text">{category.data.categoryName}</p>
+                        : ''
+                        }
+                        <RiDeleteBinLine className="category__table-icon" onClick={() => deleteCategory(category.id)} />
                     </div>
-                    )}
+                )}
                 {/* <div className="category__table-data">
                     <p className="category__table--text">Test Category</p>
                 </div>
@@ -72,7 +77,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
     addCategory: categoryName => dispatch(asyncAddCategory(categoryName)),
-    getCategory: () => dispatch(asyncGetCategories())
+    getCategory: () => dispatch(asyncGetCategories()),
+    deleteCategory: id => dispatch(deleteCategory(id))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps) (BusinessCategory);

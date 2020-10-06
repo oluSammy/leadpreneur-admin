@@ -17,6 +17,12 @@
         margin-top: 3rem;
     }
 
+    &__form-group {
+        margin-bottom: 2rem;
+        display: grid;
+        grid-template-columns: 10rem 1fr;
+    }
+
     &__label {
         font-size: 1.4rem;
         margin-right: 2rem;
@@ -24,10 +30,13 @@
     }
 
     &__input {
-        padding: .4rem 1rem;
-        width: 25rem;
+        padding: 1rem 1rem;
+        width: 30rem;
         border: 1px solid grey;
         margin-right: 3rem;
+        border: none;
+        box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+        border-radius: .4rem;
     }
 
     &__submit {

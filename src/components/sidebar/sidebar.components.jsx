@@ -48,11 +48,11 @@ const Sidebar = ({ user }) => {
                 </NavLink>
                 <NavLink to="/agents" className="sidebar__list--item" activeClassName="sidebar__list--active">
                     <AiOutlineUserSwitch className="sidebar__list--icon" />
-                    Agents
+                    Consultants
                 </NavLink>
                 <NavLink to="/new-agent" className="sidebar__list--item" activeClassName="sidebar__list--active">
                     <TiUserAddOutline className="sidebar__list--icon" />
-                    New Agent
+                    New Consultant
                 </NavLink>
                 <NavLink to="/category" className="sidebar__list--item" activeClassName="sidebar__list--active">
                     <IoMdBusiness className="sidebar__list--icon" />
