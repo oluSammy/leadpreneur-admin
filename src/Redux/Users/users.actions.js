@@ -131,7 +131,6 @@ export const asyncUpdateActivationStatus = (status, userId) => {
             if(status === 'activate') {
                 let today = new Date();
                 today.setDate(today.getDate() + 365);
-                console.log(today);
                 const fireStamp = new firebase.firestore.Timestamp.fromDate(today);
                 await userRef.update({isActivated: true, expiration: fireStamp})
                 await countRef.update({activatedUsers: firebase.firestore.FieldValue.increment(1)})
@@ -141,7 +140,6 @@ export const asyncUpdateActivationStatus = (status, userId) => {
                 await countRef.update({activatedUsers: firebase.firestore.FieldValue.increment(-1)})
                 dispatch(updateActivationStatusSuccess());
             }
-
         } catch (error) {
             dispatch(updateActivationStatusFailure());
             Swal.fire({
@@ -150,6 +148,5 @@ export const asyncUpdateActivationStatus = (status, userId) => {
                 text: `Could not update user's activation status`,
             })
         }
-
     }
 }

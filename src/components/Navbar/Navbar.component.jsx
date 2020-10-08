@@ -33,7 +33,7 @@ const Navbar = ({ currentUser, toggleSidebar, sidebarIsHidden }) => (
             </NavLink>
             <NavLink to="/agents" className="navbar__list--item navbar-link">
               <RiUserShared2Line className="navbar__list--icon" />
-              Agents
+              Consultants
             </NavLink>
             <Link to="" onClick={() => auth.signOut()} className="navbar__list--item navbar-link">
               <AiOutlineLogout className="navbar__list--icon" />
